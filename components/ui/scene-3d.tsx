@@ -4,9 +4,9 @@ import { useEffect, useRef, useCallback } from 'react'
 import * as THREE from 'three'
 
 // ─── config ───────────────────────────────────────────────
-const NODE_COUNT     = 220
+const NODE_COUNT     = 80
 const EDGE_MAX_DIST  = 2.8
-const SPHERE_RADIUS  = 6
+const SPHERE_RADIUS  = 8
 const CAMERA_Z_START = 14
 const CAMERA_Z_END   = 5
 const ROTATION_SPEED = 0.0003
@@ -54,10 +54,10 @@ export function Scene3D() {
     if (!container) return
 
     // ── renderer ──
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false })
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.setSize(container.clientWidth, container.clientHeight)
-    renderer.setClearColor(BG_COLOR, 1)
+    renderer.setClearColor(0x000000, 0)
     container.appendChild(renderer.domElement)
 
     // ── scene & camera ──
@@ -89,7 +89,7 @@ export function Scene3D() {
       colArr[i * 3]     = c.r
       colArr[i * 3 + 1] = c.g
       colArr[i * 3 + 2] = c.b
-      sizeArr[i] = 2.5 + Math.random() * 4
+      sizeArr[i] = 3.5 + Math.random() * 5
     }
 
     nodeGeometry.setAttribute('position', new THREE.BufferAttribute(posArr, 3))
@@ -158,7 +158,7 @@ export function Scene3D() {
     })
 
     const edges = new THREE.LineSegments(edgeGeometry, edgeMaterial)
-    scene.add(edges)
+    // scene.add(edges)
 
     // ── ambient glow sphere ──
     const glowGeo = new THREE.IcosahedronGeometry(SPHERE_RADIUS * 0.65, 3)
@@ -169,7 +169,7 @@ export function Scene3D() {
       wireframe: true,
     })
     const glowMesh = new THREE.Mesh(glowGeo, glowMat)
-    scene.add(glowMesh)
+    // scene.add(glowMesh)
 
     // ── event listeners ──
     const onScroll = () => {
@@ -217,15 +217,7 @@ export function Scene3D() {
       const rotSpeed = ROTATION_SPEED * (1 + scrollY * 2)
       points.rotation.y += rotSpeed
       points.rotation.x = Math.sin(elapsed * 0.1) * 0.15
-      edges.rotation.y = points.rotation.y
-      edges.rotation.x = points.rotation.x
-      glowMesh.rotation.y = points.rotation.y * 0.5
-
-      // Edges opacity shifts with scroll
-      edgeMaterial.opacity = 0.08 + scrollY * 0.15
-
-      // Glow mesh pulses
-      glowMat.opacity = 0.01 + Math.sin(elapsed * 0.8) * 0.008
+      // No edges or glowMesh rotations and opacities since they are disabled
 
       renderer.render(scene, camera)
     }
@@ -259,8 +251,8 @@ export function Scene3D() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-0"
-      style={{ pointerEvents: 'none' }}
+      className="fixed inset-0 z-[2]"
+      style={{ pointerEvents: 'none', opacity: 0.15 }}
     />
   )
 }

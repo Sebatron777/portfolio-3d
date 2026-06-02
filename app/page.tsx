@@ -7,15 +7,15 @@ import { Cases } from '@/components/ui/cases'
 import { TechStack } from '@/components/ui/tech-stack'
 import { About } from '@/components/ui/about'
 import { Contact } from '@/components/ui/contact'
-import { Scene3D } from '@/components/ui/scene-3d'
+import { GlobalScrollVideo } from '@/components/ui/global-scroll-video'
 
 export default function Home() {
   return (
     <main className="min-h-screen relative" style={{ background: '#050506' }}>
-      {/* 3D Background — fixed canvas behind everything */}
-      <Scene3D />
+      {/* Single canvas background — fixed, synced to page scroll */}
+      <GlobalScrollVideo />
 
-      {/* All content scrolls OVER the 3D scene */}
+      {/* All content scrolls OVER the background canvas */}
       <div className="relative z-10">
         <GradientMenu />
         <Hero />
@@ -25,11 +25,11 @@ export default function Home() {
         <About />
         <Contact />
         <footer
-          className="py-8 text-center text-xs border-t"
+          className="py-8 text-center text-xs"
           style={{
             fontFamily: 'var(--font-jetbrains)',
             color: 'rgba(255,255,255,0.2)',
-            borderColor: 'rgba(255,255,255,0.06)',
+            background: '#050506',
           }}
         >
           © 2025 Serhii Lysak — Telegram Bot Developer
@@ -38,3 +38,4 @@ export default function Home() {
     </main>
   )
 }
+

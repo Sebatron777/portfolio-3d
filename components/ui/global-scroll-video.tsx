@@ -70,23 +70,84 @@ export function GlobalScrollVideo({
   useEffect(() => {
     // 1. Preload first frame immediately for instant background
     const firstImg = new Image()
-    firstImg.src = '/images/frames/frame_001.jpg'
+    firstImg.src = '/images/frames_webp/frame_001.webp'
     firstImg.onload = () => {
       imagesRef.current[1] = firstImg
       drawFrame(1)
+      
+      // Start progressive loading of other keyframes to quickly fill the scrollbar range
+      loadKeyframes()
     }
 
-    // 2. Preload the remaining 191 frames in the background
-    for (let i = 1; i <= 192; i++) {
-      if (i === 1) continue
-      const img = new Image()
-      const frameNum = String(i).padStart(3, '0')
-      img.src = `/images/frames/frame_${frameNum}.jpg`
-      imagesRef.current[i] = img
-      img.onload = () => {
-        if (currentFrameRef.current === i) {
-          drawFrame(i)
+    // Keyframes list: load every 8th frame to get a quick visual baseline
+    const keyframes: number[] = []
+    for (let i = 1; i <= 192; i += 8) {
+      if (i !== 1) keyframes.push(i)
+    }
+    if (keyframes[keyframes.length - 1] !== 192) {
+      keyframes.push(192)
+    }
+
+    const loadKeyframes = () => {
+      let index = 0
+      const nextKeyframe = () => {
+        if (index >= keyframes.length) {
+          // Keyframes loaded, now load all remaining frames in non-blocking batches
+          loadRemainingFrames()
+          return
         }
+        const frameIndex = keyframes[index]
+        index++
+        const img = new Image()
+        const frameNum = String(frameIndex).padStart(3, '0')
+        img.src = `/images/frames_webp/frame_${frameNum}.webp`
+        imagesRef.current[frameIndex] = img
+        img.onload = () => {
+          if (currentFrameRef.current === frameIndex) {
+            drawFrame(frameIndex)
+          }
+          nextKeyframe()
+        }
+        img.onerror = () => {
+          nextKeyframe()
+        }
+      }
+      nextKeyframe()
+    }
+
+    const loadRemainingFrames = () => {
+      const remaining: number[] = []
+      for (let i = 1; i <= 192; i++) {
+        if (!imagesRef.current[i]) {
+          remaining.push(i)
+        }
+      }
+
+      let index = 0
+      const CONCURRENCY = 4
+      
+      const loadNext = () => {
+        if (index >= remaining.length) return
+        const frameIndex = remaining[index]
+        index++
+        
+        const img = new Image()
+        const frameNum = String(frameIndex).padStart(3, '0')
+        img.src = `/images/frames_webp/frame_${frameNum}.webp`
+        imagesRef.current[frameIndex] = img
+        img.onload = () => {
+          if (currentFrameRef.current === frameIndex) {
+            drawFrame(frameIndex)
+          }
+          loadNext()
+        }
+        img.onerror = () => {
+          loadNext()
+        }
+      }
+
+      for (let c = 0; c < CONCURRENCY; c++) {
+        loadNext()
       }
     }
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Unbounded, JetBrains_Mono, Inter } from "next/font/google";
+import { Unbounded, JetBrains_Mono, Inter, Lora } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/context/lang";
 
@@ -24,6 +24,14 @@ const plusJakarta = Inter({
   display: "swap",
 });
 
+const lora = Lora({
+  variable: "--font-grandslang",
+  subsets: ["cyrillic", "latin"],
+  weight: ["400"],
+  style: ["italic"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Serhii Lysak — Telegram Bot Developer",
   description: "Multi-account automation systems, AI-powered bots, Telegram Mini Apps — Python, FastAPI & Pyrogram.",
@@ -37,9 +45,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${jetbrainsMono.variable} ${plusJakarta.variable} h-full antialiased`}
+      className={`${syne.variable} ${jetbrainsMono.variable} ${plusJakarta.variable} ${lora.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col text-white" style={{ fontFamily: 'var(--font-dm-sans), sans-serif', background: '#050506' }}>
+      <body className="min-h-full flex flex-col text-white" style={{ fontFamily: 'var(--font-dm-sans), sans-serif', background: '#090909' }}>
         <LangProvider>
           {children}
         </LangProvider>

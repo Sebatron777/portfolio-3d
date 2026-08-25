@@ -6,7 +6,8 @@ import { useLang } from '@/context/lang'
 import { CaseCard } from './case-card'
 
 import { CaseModal, type CaseDetail } from './case-modal'
-import { UserPlus, Sparkles, SmilePlus, Wallet, Megaphone, ShoppingCart, Linkedin } from 'lucide-react'
+import { UserPlus, Sparkles, SmilePlus, Wallet, Megaphone, ShoppingCart } from 'lucide-react'
+import { FaLinkedin } from 'react-icons/fa'
 
 type CaseDetailWithIcon = CaseDetail & { icon: React.ReactNode }
 
@@ -194,7 +195,7 @@ const cases: CaseDetailWithIcon[] = [
   },
   {
     title: 'LinkedIn AI Auto-Poster',
-    icon: <Linkedin size={36} />,
+    icon: <FaLinkedin size={36} />,
     category: 'automation',
     stack: ['Node.js', 'OpenAI', 'Gemini', 'Flux AI', 'LinkedIn API', 'PM2'],
     descriptionEN: 'Autonomous content generation and posting system for LinkedIn. Scrapes daily news or takes custom topics, generates expert-level posts with AI, creates stylized corporate images via Flux, and publishes directly via LinkedIn API.',
@@ -253,12 +254,12 @@ export function Cases() {
           className="mb-10"
         >
           <h2
-            className="text-3xl md:text-4xl font-bold mb-3"
-            style={{ fontFamily: 'var(--font-syne)' }}
+            className="text-4xl md:text-5xl lg:text-[4.25rem] font-normal uppercase mb-3 leading-none text-[#f0f0f0]"
+            style={{ fontFamily: 'var(--font-jetbrains)', letterSpacing: '0.2em' }}
           >
-            {lang === 'en' ? 'Cases' : 'Кейсы'}
+            {lang === 'en' ? 'C A S E S' : 'К Е Й С Ы'}
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'var(--font-dm-sans)' }}>
+          <p style={{ color: '#828384', fontFamily: 'var(--font-dm-sans)' }}>
             {lang === 'en' ? 'Real projects, real results — click any card to explore' : 'Реальные проекты — нажмите на карточку для деталей'}
           </p>
         </motion.div>
@@ -272,10 +273,10 @@ export function Cases() {
               className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105"
               style={{
                 fontFamily: 'var(--font-dm-sans)',
-                background: active === f.key ? 'rgba(6,182,212,0.15)' : 'rgba(255,255,255,0.05)',
-                border: active === f.key ? '1px solid rgba(6,182,212,0.4)' : '1px solid rgba(255,255,255,0.1)',
-                color: active === f.key ? '#06b6d4' : 'rgba(255,255,255,0.6)',
-                boxShadow: active === f.key ? '0 0 16px rgba(6,182,212,0.2)' : 'none',
+                background: active === f.key ? 'rgba(175, 80, 255, 0.15)' : 'rgba(255,255,255,0.05)',
+                border: active === f.key ? '1px solid rgba(175, 80, 255, 0.4)' : '1px solid rgba(255,255,255,0.1)',
+                color: active === f.key ? '#af50ff' : 'rgba(255,255,255,0.6)',
+                boxShadow: 'none',
               }}
             >
               {lang === 'en' ? f.labelEN : f.labelRU}

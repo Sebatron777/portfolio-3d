@@ -35,9 +35,9 @@ export function GradientMenu() {
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color] duration-300"
       style={{
-        background: scrolled ? 'rgba(5,5,6,0.85)' : 'rgba(5,5,6,0)',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: `1px solid ${scrolled ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0)'}`,
+        background: scrolled ? 'rgba(51, 50, 72, 0.7)' : 'rgba(9, 9, 9, 0)',
+        backdropFilter: scrolled ? 'blur(10px)' : 'none',
+        borderBottom: `1px solid ${scrolled ? 'rgba(247, 249, 250, 0.12)' : 'rgba(247, 249, 250, 0)'}`,
       }}
     >
       {/* Scroll Progress Bar */}
@@ -45,15 +45,14 @@ export function GradientMenu() {
         className="absolute top-0 left-0 h-[2px] transition-all duration-75"
         style={{
           width: `${scrollProgress}%`,
-          background: 'linear-gradient(to right, #06b6d4, #f97316)',
-          boxShadow: '0 0 8px rgba(6,182,212,0.8)',
+          background: '#af50ff',
         }}
       />
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <span
-          className="text-sm font-mono font-medium tracking-wider"
-          style={{ fontFamily: 'var(--font-jetbrains)', color: 'rgba(255,255,255,0.6)' }}
+          className="text-sm font-semibold tracking-wider text-white"
+          style={{ fontFamily: 'var(--font-dm-sans)' }}
         >
           SL.dev
         </span>
@@ -64,34 +63,27 @@ export function GradientMenu() {
             <a
               key={item.titleEN}
               href={item.href}
-              className="group relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105"
-              style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-dm-sans)' }}
+              className="group relative px-4 py-2 text-xs uppercase tracking-[0.07em] font-medium transition-all duration-200 hover:scale-105"
+              style={{ color: '#828384', fontFamily: 'var(--font-dm-sans)' }}
             >
               <span className="flex items-center gap-2 relative z-10">
                 <span
-                  className="text-base transition-all duration-300 group-hover:scale-110"
-                  style={{ color: 'rgba(255,255,255,0.4)' }}
+                  className="text-sm transition-all duration-300 group-hover:scale-110"
+                  style={{ color: 'rgba(255,255,255,0.35)' }}
                 >
                   {item.icon}
                 </span>
                 <span
-                  className="transition-all duration-200"
-                  style={{ color: 'rgba(255,255,255,0.6)' }}
+                  className="transition-all duration-200 group-hover:text-[#f7f9fa]"
                 >
                   {lang === 'en' ? item.titleEN : item.titleRU}
                 </span>
               </span>
-              {/* Hover background pill */}
+              {/* Animated underline */}
               <span
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
-                style={{ background: 'rgba(255,255,255,0.06)' }}
-              />
-              {/* Animated gradient underline */}
-              <span
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] w-0 group-hover:w-3/4 transition-all duration-300 rounded-full"
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[1px] w-0 group-hover:w-3/4 transition-all duration-300"
                 style={{
-                  background: `linear-gradient(to right, ${item.gradientFrom}, ${item.gradientTo})`,
-                  boxShadow: `0 0 6px ${item.gradientFrom}80`,
+                  background: '#f7f9fa',
                 }}
               />
             </a>
@@ -102,19 +94,19 @@ export function GradientMenu() {
         <div className="flex items-center gap-3">
           <button
             onClick={toggle}
-            className="text-xs font-mono px-3 py-1.5 rounded-full transition-all duration-200 hover:scale-110 hover:border-cyan-400/40 hover:text-white hover:shadow-[0_0_12px_rgba(6,182,212,0.25)]"
+            className="text-xs font-mono px-3 py-1.5 rounded-[6px] transition-all duration-200 hover:scale-105 hover:border-[#f7f9fa] hover:text-white"
             style={{
               fontFamily: 'var(--font-jetbrains)',
-              border: '1px solid rgba(255,255,255,0.15)',
-              color: 'rgba(255,255,255,0.6)',
-              background: 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(247,249,250,0.15)',
+              color: '#828384',
+              background: 'rgba(247,249,250,0.08)',
             }}
           >
             {lang === 'en' ? 'RU' : 'EN'}
           </button>
 
           <button
-            className="md:hidden text-white/60 hover:text-white transition-colors"
+            className="md:hidden text-[#828384] hover:text-[#f7f9fa] transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <IoCloseOutline size={24} /> : <IoMenuOutline size={24} />}

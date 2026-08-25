@@ -27,7 +27,7 @@ const borderGlowStyle = `
   .glow-border {
     --x: -9999;
     --y: -9999;
-    --hue: 188; /* Unified Neon Cyan matching background telegram plane / servers */
+    --hue: 272; /* Unified Signal Violet matching dope.security */
     background-image: radial-gradient(
       450px 450px at calc(var(--x) * 1px) calc(var(--y) * 1px),
       hsl(var(--hue) 100% 70% / 0.22) 0%,

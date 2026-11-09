@@ -8,7 +8,7 @@ export function Contact() {
   const { lang } = useLang()
 
   return (
-    <section id="contact" className="relative py-24 px-6 overflow-hidden" style={{ background: 'rgba(9,9,9,0.12)' }}>
+    <section id="contact" className="relative py-24 px-6 overflow-hidden" style={{ background: 'rgba(5,5,6,0.12)' }}>
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
@@ -19,13 +19,13 @@ export function Contact() {
           {/* Availability badge */}
           <div className="inline-flex mb-8">
             <span
-              className="px-4 py-2 rounded-full text-xs"
+              className="px-4 py-2 rounded-full text-sm"
               style={{
                 fontFamily: 'var(--font-jetbrains)',
-                background: 'rgba(175, 80, 255, 0.08)',
-                border: '1px solid rgba(175, 80, 255, 0.25)',
-                color: '#af50ff',
-                letterSpacing: '0.07em',
+                background: 'rgba(0,255,136,0.08)',
+                border: '1px solid rgba(0,255,136,0.25)',
+                color: '#00ff88',
+                fontSize: '0.8rem',
               }}
             >
               ✦ {lang === 'en' ? 'Available · Response within 24h' : 'Доступен · Отвечу в течение 24ч'}
@@ -34,22 +34,47 @@ export function Contact() {
 
           {/* Headline */}
           <h2
-            className="text-4xl md:text-6xl font-normal mb-8 leading-none"
+            className="text-4xl md:text-6xl font-black mb-6"
+            style={{ fontFamily: 'var(--font-syne)' }}
           >
-            <span className="italic block text-[#e1bdff] font-light mb-1" style={{ fontFamily: 'var(--font-grandslang)' }}>
-              {lang === 'en' ? 'Ready to build' : 'Готовы что-то'}
-            </span>
-            <span className="font-bold text-white uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight" style={{ fontFamily: 'var(--font-dm-sans)' }}>
-              {lang === 'en' ? 'something?' : 'построить?'}
-            </span>
+            {lang === 'en' ? (
+              <>
+                Ready to build{' '}
+                <span
+                  style={{
+                    background: 'linear-gradient(135deg, #00ff88 0%, #06b6d4 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  something?
+                </span>
+              </>
+            ) : (
+              <>
+                Готовы что-то{' '}
+                <span
+                  style={{
+                    background: 'linear-gradient(135deg, #00ff88 0%, #06b6d4 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  построить?
+                </span>
+              </>
+            )}
           </h2>
 
           {/* Subtext */}
           <p
-            className="text-lg mb-12 max-w-2xl mx-auto font-light"
+            className="text-lg mb-12 max-w-2xl mx-auto"
             style={{
               fontFamily: 'var(--font-dm-sans)',
-              color: '#828384',
+              fontWeight: 300,
+              color: 'rgba(255,255,255,0.75)',
               lineHeight: 1.7,
             }}
           >
@@ -64,17 +89,23 @@ export function Contact() {
               href="https://t.me/AIbert_Einsteln"
               target="_blank"
               rel="noopener noreferrer"
-              className="group px-10 py-4 rounded-[1584px] text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(175,80,255,0.45)]"
+              className="group relative px-10 py-4 rounded-full text-base font-bold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,136,0.35)] overflow-hidden"
               style={{
                 fontFamily: 'var(--font-dm-sans)',
-                background: '#af50ff',
-                color: '#090909',
+                background: 'linear-gradient(135deg, #00ff88 0%, #06b6d4 100%)',
+                color: '#050506', // dark text for high contrast on neon bright gradient button
               }}
             >
               <span className="relative z-10 inline-flex items-center gap-2">
                 {lang === 'en' ? 'Write on Telegram' : 'Написать в Telegram'}
                 <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
               </span>
+              <span
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 50%, rgba(255,255,255,0.15) 100%)',
+                }}
+              />
             </a>
           </div>
 
@@ -86,7 +117,7 @@ export function Contact() {
             className="text-sm transition-colors duration-200 hover:text-white block mb-16"
             style={{
               fontFamily: 'var(--font-jetbrains)',
-              color: '#474747',
+              color: 'rgba(255,255,255,0.35)',
             }}
           >
             github.com/Sebatron777

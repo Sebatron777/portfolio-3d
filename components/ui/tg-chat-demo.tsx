@@ -82,7 +82,7 @@ export function TgChatDemo() {
       >
         <div
           className="w-7 h-7 rounded-full flex items-center justify-center text-sm shrink-0"
-          style={{ background: 'linear-gradient(135deg, #af50ff, #7a22ff)' }}
+          style={{ background: 'linear-gradient(135deg, #06b6d4, #0891b2)' }}
         >
           🤖
         </div>
@@ -90,8 +90,8 @@ export function TgChatDemo() {
           <div className="text-xs font-semibold text-white" style={{ fontFamily: 'var(--font-dm-sans)' }}>
             SalesBot Pro
           </div>
-          <div className="text-[10px] flex items-center gap-1" style={{ color: '#af50ff' }}>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#af50ff] inline-block animate-pulse" />
+          <div className="text-[10px] flex items-center gap-1" style={{ color: '#00ff88' }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88] inline-block animate-pulse" />
             online
           </div>
         </div>
@@ -117,7 +117,7 @@ export function TgChatDemo() {
                   fontFamily: 'var(--font-dm-sans)',
                   ...(msg.from === 'user'
                     ? {
-                        background: 'linear-gradient(135deg, #af50ff, #7a22ff)',
+                        background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
                         color: '#fff',
                         borderBottomRightRadius: '4px',
                       }
@@ -172,7 +172,7 @@ export function TgChatDemo() {
         <span className="text-xs flex-1" style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-dm-sans)' }}>
           {lang === 'en' ? 'Message...' : 'Сообщение...'}
         </span>
-        <span style={{ color: '#af50ff', opacity: 0.6 }}>
+        <span style={{ color: '#06b6d4', opacity: 0.6 }}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
             <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
           </svg>

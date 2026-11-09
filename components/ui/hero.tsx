@@ -14,13 +14,13 @@ export function Hero() {
       <div 
         className="absolute inset-0 pointer-events-none z-0" 
         style={{ 
-          background: 'linear-gradient(to right, rgba(9, 9, 9, 0.95) 0%, rgba(9, 9, 9, 0.75) 45%, rgba(9, 9, 9, 0.08) 80%, transparent 100%)' 
+          background: 'linear-gradient(to right, rgba(5, 5, 6, 0.90) 0%, rgba(5, 5, 6, 0.70) 45%, rgba(5, 5, 6, 0.10) 80%, transparent 100%)' 
         }} 
       />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12">
 
           {/* LEFT — text */}
           <div className="flex-1 min-w-0">
@@ -32,24 +32,24 @@ export function Hero() {
               className="mb-8 inline-flex"
             >
               <span
-                className="px-4 py-2 rounded-full text-xs inline-flex items-center gap-2"
+                className="px-4 py-2 rounded-full text-sm inline-flex items-center gap-2"
                 style={{
                   fontFamily: 'var(--font-jetbrains)',
-                  background: 'rgba(247,249,250,0.08)',
-                  border: '1px solid rgba(247,249,250,0.15)',
+                  background: 'rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.15)',
                   backdropFilter: 'blur(12px)',
-                  color: '#f7f9fa',
-                  letterSpacing: '0.07em',
+                  color: 'rgba(255,255,255,0.8)',
+                  fontSize: '0.8rem',
                 }}
               >
                 <span className="relative flex h-2 w-2">
                   <span
                     className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                    style={{ background: '#af50ff' }}
+                    style={{ background: '#00ff88' }}
                   />
                   <span
                     className="relative inline-flex rounded-full h-2 w-2"
-                    style={{ background: '#af50ff' }}
+                    style={{ background: '#00ff88' }}
                   />
                 </span>
                 {lang === 'en'
@@ -65,24 +65,21 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="mb-6"
             >
-              <h1 className="leading-none" style={{ lineHeight: 0.95 }}>
-                <span 
-                  className="block text-5xl md:text-7xl lg:text-[7.5rem] font-light text-[#e1bdff] italic mb-1"
-                  style={{ fontFamily: 'var(--font-grandslang)', letterSpacing: '-0.03em' }}
-                >
-                  {lang === 'en' ? 'I Build' : 'Я строю'}
+              <h1 className="leading-tight" style={{ fontFamily: 'var(--font-syne)', lineHeight: lang === 'ru' ? 1.20 : 1.10 }}>
+                <span className="block text-4xl md:text-6xl lg:text-7xl font-semibold text-white mb-2">
+                  {lang === 'en' ? 'I Build' : 'Разработка'}
                 </span>
                 <span 
-                  className="block text-4xl md:text-6xl lg:text-7xl font-bold text-white uppercase tracking-tight"
-                  style={{ fontFamily: 'var(--font-dm-sans)' }}
+                  className="block text-4xl md:text-6xl lg:text-7xl font-black text-white"
+                  style={{ letterSpacing: lang === 'ru' ? '-0.02em' : 'normal' }}
                 >
                   {lang === 'en' ? 'Telegram Bots' : 'TELEGRAM BOTS'}
                 </span>
                 <span
-                  className="block text-3xl md:text-5xl lg:text-[3.5rem] font-light text-[#e1bdff] italic mt-2"
-                  style={{ fontFamily: 'var(--font-grandslang)', letterSpacing: '-0.03em' }}
+                  className="block text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mt-3"
+                  style={{ color: 'rgba(255,255,255,0.85)' }}
                 >
-                  {lang === 'en' ? 'with Auto Uptime.' : 'с вечным аптаймом.'}
+                  {lang === 'en' ? 'That Actually Work.' : 'Профессиональные решения.'}
                 </span>
               </h1>
             </motion.div>
@@ -94,13 +91,13 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mb-10 max-w-xl text-base md:text-lg leading-relaxed"
               style={{ 
-                color: '#828384', 
+                color: 'rgba(255,255,255,0.85)', 
                 fontFamily: 'var(--font-dm-sans)', 
-                fontWeight: 400,
-                background: 'rgba(175, 80, 255, 0.03)',
+                fontWeight: 500,
+                background: 'linear-gradient(90deg, rgba(5, 5, 6, 0.75) 0%, rgba(5, 5, 6, 0.25) 75%, transparent 100%)',
                 padding: '12px 20px',
                 borderRadius: '12px',
-                borderLeft: '2px solid #af50ff',
+                borderLeft: '2px solid rgba(6, 182, 212, 0.35)',
                 marginLeft: '-20px',
               }}
             >
@@ -118,11 +115,11 @@ export function Hero() {
             >
               <a
                 href="#cases"
-                className="group px-8 py-4 rounded-[1584px] text-base font-medium transition-all duration-300 hover:scale-105 hover:bg-white/10"
+                className="group px-8 py-4 rounded-full text-base font-semibold transition-all duration-300 hover:scale-105 hover:border-cyan-400 hover:text-white hover:shadow-[0_0_25px_rgba(6,182,212,0.25)]"
                 style={{
                   fontFamily: 'var(--font-dm-sans)',
-                  background: 'rgba(247, 249, 250, 0.06)',
-                  color: '#f7f9fa',
+                  border: '1px solid rgba(6,182,212,0.45)',
+                  color: 'rgba(255,255,255,0.9)',
                   backdropFilter: 'blur(8px)',
                 }}
               >
@@ -135,73 +132,32 @@ export function Hero() {
                 href="https://t.me/AIbert_Einsteln"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group px-8 py-4 rounded-[1584px] text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(175,80,255,0.45)]"
+                className="group relative px-8 py-4 rounded-full text-base font-bold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,136,0.35)] overflow-hidden"
                 style={{
                   fontFamily: 'var(--font-dm-sans)',
-                  background: '#af50ff',
-                  color: '#090909',
+                  background: 'linear-gradient(135deg, #00ff88 0%, #06b6d4 100%)',
+                  color: '#050506', // dark text for high contrast on neon bright gradient button
                 }}
               >
                 <span className="relative z-10 inline-flex items-center gap-2">
                   {lang === 'en' ? 'Hire Me' : 'Написать'}
                   <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </span>
+                {/* Shimmer overlay on hover */}
+                <span
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 50%, rgba(255,255,255,0.15) 100%)',
+                  }}
+                />
               </a>
             </motion.div>
           </div>
 
-          {/* RIGHT — Telegram chat demo inside Boarding Pass Card */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-            className="hidden lg:flex lg:flex-col lg:items-center p-8 rounded-[19.2px] border"
-            style={{
-              background: 'rgba(237, 195, 196, 0.025)',
-              borderColor: 'rgba(247, 249, 250, 0.12)',
-              backdropFilter: 'blur(12px)',
-            }}
-          >
-            {/* Boarding Pass header */}
-            <div className="w-full flex items-center justify-between mb-4 border-b pb-3" style={{ borderColor: 'rgba(247, 249, 250, 0.07)' }}>
-              <span className="text-[10px] tracking-[0.2em] font-mono text-[#828384] uppercase">BOARDING PASS</span>
-              <span className="text-[10px] tracking-[0.1em] font-mono text-[#828384] uppercase">FLIGHT: SL-2026</span>
-            </div>
-            
-            {/* Origin/Destination */}
-            <div className="w-full flex justify-between items-center mb-6 px-1">
-              <div className="text-left">
-                <span className="text-[9px] text-[#828384] block font-mono">ORIGIN</span>
-                <span className="italic text-2xl text-[#f7f9fa] font-light" style={{ fontFamily: 'var(--font-grandslang)' }}>Legacy</span>
-              </div>
-              <div className="text-[#828384] font-mono text-lg">→</div>
-              <div className="text-right">
-                <span className="text-[9px] text-[#828384] block font-mono">DESTINATION</span>
-                <span className="italic text-2xl text-[#f7f9fa] font-light" style={{ fontFamily: 'var(--font-grandslang)' }}>DS</span>
-              </div>
-            </div>
-            
+          {/* RIGHT — Telegram chat demo */}
+          <div className="hidden lg:flex lg:items-end lg:shrink-0">
             <TgChatDemo />
-            
-            {/* Decorative vertical barcode */}
-            <div className="w-full flex items-center justify-between mt-6 pt-4 border-t" style={{ borderColor: 'rgba(247, 249, 250, 0.07)' }}>
-              <div className="flex gap-[2px] items-stretch h-6 opacity-35">
-                <div className="w-[1.5px] bg-[#f7f9fa]"></div>
-                <div className="w-[3px] bg-[#f7f9fa]"></div>
-                <div className="w-[1px] bg-[#f7f9fa]"></div>
-                <div className="w-[2px] bg-[#f7f9fa]"></div>
-                <div className="w-[4px] bg-[#f7f9fa]"></div>
-                <div className="w-[1px] bg-[#f7f9fa]"></div>
-                <div className="w-[2.5px] bg-[#f7f9fa]"></div>
-                <div className="w-[1px] bg-[#f7f9fa]"></div>
-                <div className="w-[3.5px] bg-[#f7f9fa]"></div>
-                <div className="w-[1px] bg-[#f7f9fa]"></div>
-                <div className="w-[2px] bg-[#f7f9fa]"></div>
-                <div className="w-[1px] bg-[#f7f9fa]"></div>
-              </div>
-              <span className="text-[9px] tracking-[0.1em] font-mono text-[#828384] uppercase">CLASS: FIRST</span>
-            </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>

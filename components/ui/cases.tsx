@@ -254,12 +254,12 @@ export function Cases() {
           className="mb-10"
         >
           <h2
-            className="text-4xl md:text-5xl lg:text-[4.25rem] font-normal uppercase mb-3 leading-none text-[#f0f0f0]"
-            style={{ fontFamily: 'var(--font-jetbrains)', letterSpacing: '0.2em' }}
+            className="text-3xl md:text-4xl font-bold mb-3"
+            style={{ fontFamily: 'var(--font-syne)' }}
           >
-            {lang === 'en' ? 'C A S E S' : 'К Е Й С Ы'}
+            {lang === 'en' ? 'Cases' : 'Кейсы'}
           </h2>
-          <p style={{ color: '#828384', fontFamily: 'var(--font-dm-sans)' }}>
+          <p style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'var(--font-dm-sans)' }}>
             {lang === 'en' ? 'Real projects, real results — click any card to explore' : 'Реальные проекты — нажмите на карточку для деталей'}
           </p>
         </motion.div>
@@ -273,10 +273,10 @@ export function Cases() {
               className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105"
               style={{
                 fontFamily: 'var(--font-dm-sans)',
-                background: active === f.key ? 'rgba(175, 80, 255, 0.15)' : 'rgba(255,255,255,0.05)',
-                border: active === f.key ? '1px solid rgba(175, 80, 255, 0.4)' : '1px solid rgba(255,255,255,0.1)',
-                color: active === f.key ? '#af50ff' : 'rgba(255,255,255,0.6)',
-                boxShadow: 'none',
+                background: active === f.key ? 'rgba(6,182,212,0.15)' : 'rgba(255,255,255,0.05)',
+                border: active === f.key ? '1px solid rgba(6,182,212,0.4)' : '1px solid rgba(255,255,255,0.1)',
+                color: active === f.key ? '#06b6d4' : 'rgba(255,255,255,0.6)',
+                boxShadow: active === f.key ? '0 0 16px rgba(6,182,212,0.2)' : 'none',
               }}
             >
               {lang === 'en' ? f.labelEN : f.labelRU}

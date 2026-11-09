@@ -11,25 +11,25 @@ const timeline = [
     year: '2021–2023',
     en: 'Web3 Community Management',
     ru: 'Web3 Community Management',
-    color: '#474747',
+    color: '#0e7490',
   },
   {
     year: '2023–2024',
     en: 'First Telegram bots & automation',
     ru: 'Первые боты и автоматизация',
-    color: '#828384',
+    color: '#06b6d4',
   },
   {
     year: '2024–2025',
     en: 'Multi-account systems & AI tools',
     ru: 'Мультиаккаунт-системы и AI',
-    color: '#e1bdff',
+    color: '#22d3ee',
   },
   {
     year: '2025+',
     en: 'Full-stack products & Mini Apps',
     ru: 'Продукты и Mini Apps',
-    color: '#af50ff',
+    color: '#00ff88',
   },
 ]
 
@@ -40,7 +40,7 @@ const principles = [
     ru: 'Системы, не скрипты',
     descEn: 'Every project has admin panel, monitoring, and proper architecture.',
     descRu: 'Каждый проект — с admin-панелью, мониторингом и архитектурой.',
-    color: '#af50ff',
+    color: '#06b6d4',
   },
   {
     icon: <Shield size={20} />,
@@ -48,15 +48,15 @@ const principles = [
     ru: '24/7 аптайм',
     descEn: 'Systemd, auto-recovery, anti-flood — built to run without babysitting.',
     descRu: 'Systemd, авто-восстановление, антифлуд — работает без присмотра.',
-    color: '#e1bdff',
+    color: '#00ff88',
   },
   {
     icon: <Rocket size={20} />,
-    en: 'Ship fast, iterate',
+    en: 'Fast turnaround',
     ru: 'Быстрый запуск',
     descEn: 'From idea to working MVP in days. Then polish based on real usage.',
     descRu: 'От идеи до рабочего MVP за дни. Потом доработка на реальных данных.',
-    color: '#f7f9fa',
+    color: '#f97316',
   },
 ]
 
@@ -76,14 +76,14 @@ export function About() {
           className="mb-16"
         >
           <h2
-            className="text-4xl md:text-5xl lg:text-[4.25rem] font-normal uppercase mb-3 leading-none text-[#f0f0f0]"
-            style={{ fontFamily: 'var(--font-jetbrains)', letterSpacing: '0.2em' }}
+            className="text-3xl md:text-4xl font-bold mb-4"
+            style={{ fontFamily: 'var(--font-syne)' }}
           >
-            {lang === 'en' ? 'A B O U T' : 'О   С Е Б Е'}
+            {lang === 'en' ? 'About' : 'Обо мне'}
           </h2>
           <p
-            className="text-lg max-w-2xl font-light"
-            style={{ fontFamily: 'var(--font-dm-sans)', color: '#828384' }}
+            className="text-lg max-w-2xl"
+            style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 300, color: 'rgba(255,255,255,0.75)' }}
           >
             {lang === 'en'
               ? 'Self-taught developer who turned community management into building real automation products.'
@@ -101,12 +101,12 @@ export function About() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="h-full flex flex-col items-stretch"
           >
-            <GlowCard className="p-8 flex flex-col h-full w-full" glowColor="purple">
+            <GlowCard className="p-8 flex flex-col h-full w-full" glowColor="cyan">
               <div className="flex items-center gap-2 mb-5">
-                <MapPin size={16} style={{ color: '#af50ff' }} />
+                <MapPin size={16} style={{ color: '#06b6d4' }} />
                 <span
                   className="text-sm"
-                  style={{ fontFamily: 'var(--font-jetbrains)', color: '#828384' }}
+                  style={{ fontFamily: 'var(--font-jetbrains)', color: 'rgba(255,255,255,0.5)' }}
                 >
                   Da Nang, Vietnam
                 </span>
@@ -191,7 +191,7 @@ export function About() {
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.5, delay: 0.15 * i, ease: [0.16, 1, 0.3, 1] }}
             >
-              <GlowCard className="p-6 flex flex-col" glowColor="purple">
+              <GlowCard className="p-6 flex flex-col" glowColor="cyan">
                 <div
                   className="w-9 h-9 rounded-lg flex items-center justify-center mb-3"
                   style={{ background: `${p.color}15`, border: `1px solid ${p.color}30`, color: p.color }}
@@ -199,8 +199,8 @@ export function About() {
                   {p.icon}
                 </div>
                 <h4
-                  className="text-sm font-semibold mb-1.5"
-                  style={{ fontFamily: 'var(--font-dm-sans)', color: 'white' }}
+                  className="text-sm font-bold mb-1.5"
+                  style={{ fontFamily: 'var(--font-syne)', color: 'white' }}
                 >
                   {lang === 'en' ? p.en : p.ru}
                 </h4>

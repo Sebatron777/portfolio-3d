@@ -73,12 +73,12 @@ export function TechStack() {
           className="mb-12"
         >
           <h2
-            className="text-4xl md:text-5xl lg:text-[4.25rem] font-normal uppercase mb-3 leading-none text-[#f0f0f0]"
-            style={{ fontFamily: 'var(--font-jetbrains)', letterSpacing: '0.2em' }}
+            className="text-3xl md:text-4xl font-bold mb-3"
+            style={{ fontFamily: 'var(--font-syne)' }}
           >
-            {lang === 'en' ? 'S T A C K' : 'С Т Е К'}
+            {lang === 'en' ? 'Tech Stack' : 'Технологии'}
           </h2>
-          <p style={{ color: '#828384', fontFamily: 'var(--font-dm-sans)' }}>
+          <p style={{ color: 'rgba(255,255,255,0.75)', fontFamily: 'var(--font-dm-sans)' }}>
             {lang === 'en' ? 'Tools I use to build production systems' : 'Инструменты для продакшен-систем'}
           </p>
         </motion.div>
@@ -93,17 +93,17 @@ export function TechStack() {
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="h-full flex flex-col items-stretch group"
             >
-              <GlowCard customSize glowColor="purple" className="w-full h-full p-6">
+              <GlowCard customSize glowColor={cat.glow} className="w-full h-full p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div
                     className="w-8 h-8 rounded-lg flex items-center justify-center"
-                    style={{ background: 'rgba(175, 80, 255, 0.08)', border: '1px solid rgba(175, 80, 255, 0.25)', color: '#af50ff' }}
+                    style={{ background: `${cat.color}15`, border: `1px solid ${cat.color}30`, color: cat.color }}
                   >
                     {cat.icon}
                   </div>
                   <h3
-                    className="font-semibold text-white"
-                    style={{ fontFamily: 'var(--font-dm-sans)' }}
+                    className="font-bold"
+                    style={{ fontFamily: 'var(--font-syne)' }}
                   >
                     {lang === 'en' ? cat.titleEN : cat.titleRU}
                   </h3>
@@ -112,7 +112,7 @@ export function TechStack() {
                   {cat.tags.map(tag => (
                     <StackBadge 
                       key={tag}
-                      className="bg-white/3 border border-white/8 text-white/40 group-hover:bg-[#af50ff]/10 group-hover:border-[#af50ff]/35 group-hover:text-[#e1bdff]"
+                      className="bg-white/3 border border-white/8 text-white/40 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/30 group-hover:text-cyan-400"
                     >
                       {tag}
                     </StackBadge>

@@ -18,14 +18,14 @@ interface CaseCardProps {
 }
 
 const categoryColors: Record<string, string> = {
-  'telegram-bot': '#af50ff',
-  'automation':   '#e1bdff',
-  'ai-tool':      '#af50ff',
+  'telegram-bot': '#06b6d4',
+  'automation':   '#f97316',
+  'ai-tool':      '#7c3aed',
 }
 
-const categoryGlow: Record<string, 'purple'> = {
-  'telegram-bot': 'purple',
-  'automation':   'purple',
+const categoryGlow: Record<string, 'cyan' | 'orange' | 'purple'> = {
+  'telegram-bot': 'cyan',
+  'automation':   'orange',
   'ai-tool':      'purple',
 }
 
@@ -50,7 +50,7 @@ export function CaseCard({ title, category, stack, descriptionEN, descriptionRU,
     >
       <GlowCard
         customSize
-        glowColor="purple"
+        glowColor={categoryGlow[category]}
         className="w-full h-full flex flex-col"
       >
         {/* Compact Visual Header Area */}
@@ -91,17 +91,17 @@ export function CaseCard({ title, category, stack, descriptionEN, descriptionRU,
           {/* Title row with hover arrow button on the right */}
           <div className="flex items-start justify-between gap-3 mb-4">
             <h3
-              className="text-lg font-semibold text-white leading-snug"
-              style={{ fontFamily: 'var(--font-dm-sans)' }}
+              className="text-lg font-bold leading-snug"
+              style={{ fontFamily: 'var(--font-syne)' }}
             >
               {title}
             </h3>
             <span
               className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-1 group-hover:translate-x-0"
               style={{
-                background: 'rgba(175, 80, 255, 0.15)',
-                border: '1px solid rgba(175, 80, 255, 0.35)',
-                color: '#af50ff',
+                background: `${color}18`,
+                border: `1px solid ${color}45`,
+                color,
               }}
             >
               →
@@ -110,7 +110,7 @@ export function CaseCard({ title, category, stack, descriptionEN, descriptionRU,
 
           <p
             className="text-sm leading-relaxed mb-6 flex-1"
-            style={{ color: '#828384', fontFamily: 'var(--font-dm-sans)' }}
+            style={{ color: 'rgba(255,255,255,0.75)', fontFamily: 'var(--font-dm-sans)' }}
           >
             {lang === 'en' ? descriptionEN : descriptionRU}
           </p>
@@ -138,7 +138,7 @@ export function CaseCard({ title, category, stack, descriptionEN, descriptionRU,
             {stack.map(s => (
               <StackBadge 
                 key={s}
-                className="bg-white/3 border border-white/8 text-white/40 group-hover:bg-[#af50ff]/10 group-hover:border-[#af50ff]/35 group-hover:text-[#e1bdff]"
+                className="bg-white/3 border border-white/8 text-white/40 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/30 group-hover:text-cyan-400"
               >
                 {s}
               </StackBadge>

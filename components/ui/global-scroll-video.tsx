@@ -223,7 +223,7 @@ export function GlobalScrollVideo({
 
         {/* Floating tech badge covering the stock video watermark (bottom-right: x ~1820, y ~1020 of 1920x1080) */}
         <a
-          href="https://t.me/ad_min_group"
+          href="https://t.me/AIbert_Einsteln"
           target="_blank"
           rel="noopener noreferrer"
           className="absolute flex items-center justify-center pointer-events-auto"

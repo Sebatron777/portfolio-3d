@@ -289,7 +289,7 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                 }}
               >
                 <a
-                  href="https://t.me/ad_min_group"
+                  href="https://t.me/AIbert_Einsteln"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-90"

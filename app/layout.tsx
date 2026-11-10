@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const plusJakarta = Inter({
+const interFont = Inter({
   variable: "--font-dm-sans",
   subsets: ["cyrillic", "latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -25,8 +25,8 @@ const plusJakarta = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Serhii Lysak — Telegram Bot Developer",
-  description: "Multi-account automation systems, AI-powered bots, Telegram Mini Apps — Python, FastAPI & Pyrogram.",
+  title: "Serhii Lysak: Telegram Bot Developer",
+  description: "Multi-account automation systems, AI-powered bots, Telegram Mini Apps. Python, FastAPI & Pyrogram.",
 };
 
 export default function RootLayout({
@@ -37,9 +37,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${jetbrainsMono.variable} ${plusJakarta.variable} h-full antialiased`}
+      className={`${syne.variable} ${jetbrainsMono.variable} ${interFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col text-white" style={{ fontFamily: 'var(--font-dm-sans), sans-serif', background: '#050506' }}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('js');`,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
         <LangProvider>
           {children}
         </LangProvider>

@@ -11,7 +11,7 @@ import { GlobalScrollVideo } from '@/components/ui/global-scroll-video'
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative" style={{ background: '#050506' }}>
+    <main className="min-h-dvh relative bg-background">
       {/* Single canvas background — fixed, synced to page scroll */}
       <GlobalScrollVideo />
 
@@ -25,14 +25,9 @@ export default function Home() {
         <About />
         <Contact />
         <footer
-          className="py-8 text-center text-xs"
-          style={{
-            fontFamily: 'var(--font-jetbrains)',
-            color: 'rgba(255,255,255,0.2)',
-            background: '#050506',
-          }}
+          className="py-8 text-center text-xs text-muted-foreground bg-background"
         >
-          © 2025 Serhii Lysak — Telegram Bot Developer
+          © 2025 Serhii Lysak: Telegram Bot Developer
         </footer>
       </div>
     </main>

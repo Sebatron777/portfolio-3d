@@ -2,8 +2,7 @@
 
 import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { IoCloseOutline } from 'react-icons/io5'
-import { Bot, Cog, Brain } from 'lucide-react'
+import { Bot, Cog, Brain, X } from 'lucide-react'
 import { useLang } from '@/context/lang'
 import { StackBadge } from './stack-badge'
 
@@ -24,21 +23,21 @@ export interface CaseDetail {
 }
 
 const categoryColors: Record<string, string> = {
-  'telegram-bot': '#06b6d4',
-  'automation': '#f97316',
-  'ai-tool': '#7c3aed',
+  'telegram-bot': 'var(--color-accent)',
+  'automation':   'var(--color-tag-automation)',
+  'ai-tool':      'var(--color-tag-ai)',
 }
 
 const categoryLabels: Record<string, { en: string; ru: string }> = {
   'telegram-bot': { en: 'Telegram Bot', ru: 'Telegram Бот' },
-  'automation': { en: 'Automation', ru: 'Автоматизация' },
-  'ai-tool': { en: 'AI Tool', ru: 'AI инструмент' },
+  'automation':   { en: 'Automation',   ru: 'Автоматизация' },
+  'ai-tool':      { en: 'AI Tool',      ru: 'AI инструмент' },
 }
 
 const categoryIcon: Record<string, React.ReactNode> = {
   'telegram-bot': <Bot size={20} />,
-  'automation': <Cog size={20} />,
-  'ai-tool': <Brain size={20} />,
+  'automation':   <Cog size={20} />,
+  'ai-tool':      <Brain size={20} />,
 }
 
 interface CaseModalProps {
@@ -60,7 +59,7 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
     }
   }, [item, onClose])
 
-  const color = item ? categoryColors[item.category] : '#06b6d4'
+  const color = item ? categoryColors[item.category] : 'var(--color-accent)'
 
   return (
     <AnimatePresence>
@@ -74,7 +73,7 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-50 cursor-pointer"
-            style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)' }}
+            style={{ background: 'color-mix(in oklab, var(--color-paper) 80%, black)', backdropFilter: 'blur(8px)' }}
             onClick={onClose}
           />
 
@@ -90,8 +89,8 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
             <div
               className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto pointer-events-auto rounded-2xl"
               style={{
-                background: 'rgba(10,10,10,0.97)',
-                border: '1px solid rgba(255,255,255,0.1)',
+                background: 'var(--color-paper-2)',
+                border: '1px solid var(--color-rule)',
                 backdropFilter: 'blur(20px)',
               }}
             >
@@ -99,14 +98,18 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
               <div
                 className="sticky top-0 z-10 flex items-start justify-between gap-4 p-6 pb-4"
                 style={{
-                  background: 'rgba(10,10,10,0.97)',
-                  borderBottom: '1px solid rgba(255,255,255,0.06)',
+                  background: 'var(--color-paper-2)',
+                  borderBottom: '1px solid var(--color-rule)',
                 }}
               >
                 <div className="flex items-center gap-3">
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                    style={{ background: `${color}15`, border: `1px solid ${color}30`, color }}
+                    style={{
+                      background: `color-mix(in oklab, ${color} 15%, transparent)`,
+                      border: `1px solid color-mix(in oklab, ${color} 30%, transparent)`,
+                      color,
+                    }}
                   >
                     {categoryIcon[item.category]}
                   </div>
@@ -115,16 +118,16 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                       className="text-xs px-2 py-0.5 rounded-full mb-1 inline-block"
                       style={{
                         fontFamily: 'var(--font-jetbrains)',
-                        background: `${color}15`,
-                        border: `1px solid ${color}35`,
-                        color: color,
+                        background: `color-mix(in oklab, ${color} 15%, transparent)`,
+                        border: `1px solid color-mix(in oklab, ${color} 35%, transparent)`,
+                        color,
                       }}
                     >
                       {categoryLabels[item.category][lang]}
                     </span>
                     <h2
-                      className="text-xl font-bold text-white"
-                      style={{ fontFamily: 'var(--font-syne)' }}
+                      className="text-xl font-bold"
+                      style={{ fontFamily: 'var(--font-syne)', color: 'var(--color-ink)' }}
                     >
                       {item.title}
                     </h2>
@@ -132,10 +135,11 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                 </div>
                 <button
                   onClick={onClose}
-                  className="shrink-0 w-8 h-8 flex items-center justify-center rounded-lg transition-colors duration-150 hover:bg-white/10"
-                  style={{ color: 'rgba(255,255,255,0.6)' }}
+                  className="shrink-0 w-8 h-8 flex items-center justify-center rounded-lg transition-colors duration-150 hover:bg-[var(--color-paper-3)]"
+                  style={{ color: 'var(--color-muted-foreground)' }}
+                  aria-label="Close dialog"
                 >
-                  <IoCloseOutline size={20} />
+                  <X size={20} />
                 </button>
               </div>
 
@@ -147,7 +151,7 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                   style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontWeight: 300,
-                    color: 'rgba(255,255,255,0.7)',
+                    color: 'var(--color-ink-2)',
                   }}
                 >
                   {lang === 'en' ? item.descriptionEN : item.descriptionRU}
@@ -159,15 +163,15 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-4 px-6 py-2 rounded-lg text-sm font-semibold transition-all hover:opacity-90"
+                    className="inline-block mt-4 px-6 py-2 rounded-lg text-sm font-semibold transition-opacity hover:opacity-90"
                     style={{
                       fontFamily: 'var(--font-dm-sans)',
-                      background: `${color}15`,
-                      border: `1px solid ${color}40`,
+                      background: `color-mix(in oklab, ${color} 15%, transparent)`,
+                      border: `1px solid color-mix(in oklab, ${color} 40%, transparent)`,
                       color: color,
                     }}
                   >
-                    {lang === 'en' ? 'Open Bot →' : 'Открыть бота →'}
+                    {lang === 'en' ? 'Open Bot' : 'Открыть бота'}
                   </a>
                 )}
 
@@ -176,7 +180,7 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                 {((lang === 'en' && item.featuresEN) || (lang === 'ru' && item.featuresRU)) && (
                   <div>
                     <h3
-                      className="text-sm font-semibold mb-3 uppercase tracking-wider"
+                      className="text-sm font-semibold mb-3"
                       style={{ fontFamily: 'var(--font-jetbrains)', color: color }}
                     >
                       {lang === 'en' ? 'Key Features' : 'Ключевые функции'}
@@ -186,9 +190,9 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                         <li
                           key={i}
                           className="flex items-start gap-3 text-sm"
-                          style={{ fontFamily: 'var(--font-dm-sans)', color: 'rgba(255,255,255,0.65)' }}
+                          style={{ fontFamily: 'var(--font-dm-sans)', color: 'var(--color-ink-2)' }}
                         >
-                          <span style={{ color: color, marginTop: '2px' }}>→</span>
+                          <span style={{ color: color, marginTop: '2px' }} aria-hidden="true">•</span>
                           {f}
                         </li>
                       ))}
@@ -200,17 +204,17 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                 {(item.challengeEN || item.challengeRU) && (
                   <div
                     className="rounded-xl p-4"
-                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
+                    style={{ background: 'var(--color-paper-3)', border: '1px solid var(--color-rule)' }}
                   >
                     <h3
-                      className="text-sm font-semibold mb-2 uppercase tracking-wider"
-                      style={{ fontFamily: 'var(--font-jetbrains)', color: 'rgba(255,255,255,0.55)' }}
+                      className="text-sm font-semibold mb-2"
+                      style={{ fontFamily: 'var(--font-jetbrains)', color: 'var(--color-muted)' }}
                     >
                       {lang === 'en' ? 'Challenge' : 'Задача'}
                     </h3>
                     <p
                       className="text-sm leading-relaxed"
-                      style={{ fontFamily: 'var(--font-dm-sans)', color: 'rgba(255,255,255,0.6)' }}
+                      style={{ fontFamily: 'var(--font-dm-sans)', color: 'var(--color-ink-2)' }}
                     >
                       {lang === 'en' ? item.challengeEN : item.challengeRU}
                     </p>
@@ -221,17 +225,20 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                 {(item.resultEN || item.resultRU) && (
                   <div
                     className="rounded-xl p-4"
-                    style={{ background: `${color}08`, border: `1px solid ${color}20` }}
+                    style={{
+                      background: `color-mix(in oklab, ${color} 8%, transparent)`,
+                      border: `1px solid color-mix(in oklab, ${color} 25%, transparent)`,
+                    }}
                   >
                     <h3
-                      className="text-sm font-semibold mb-2 uppercase tracking-wider"
+                      className="text-sm font-semibold mb-2"
                       style={{ fontFamily: 'var(--font-jetbrains)', color: color }}
                     >
                       {lang === 'en' ? 'Result' : 'Результат'}
                     </h3>
                     <p
                       className="text-sm leading-relaxed"
-                      style={{ fontFamily: 'var(--font-dm-sans)', color: 'rgba(255,255,255,0.7)' }}
+                      style={{ fontFamily: 'var(--font-dm-sans)', color: 'var(--color-ink-2)' }}
                     >
                       {lang === 'en' ? item.resultEN : item.resultRU}
                     </p>
@@ -241,8 +248,8 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                 {/* Highlights */}
                 <div>
                   <h3
-                    className="text-sm font-semibold mb-3 uppercase tracking-wider"
-                    style={{ fontFamily: 'var(--font-jetbrains)', color: 'rgba(255,255,255,0.35)' }}
+                    className="text-sm font-semibold mb-3"
+                    style={{ fontFamily: 'var(--font-jetbrains)', color: 'var(--color-muted-foreground)' }}
                   >
                     {lang === 'en' ? 'Highlights' : 'Особенности'}
                   </h3>
@@ -253,9 +260,9 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                         className="text-xs px-3 py-1 rounded-full"
                         style={{
                           fontFamily: 'var(--font-jetbrains)',
-                          background: 'rgba(255,255,255,0.06)',
-                          border: '1px solid rgba(255,255,255,0.1)',
-                          color: 'rgba(255,255,255,0.55)',
+                          background: 'var(--color-paper-3)',
+                          border: '1px solid var(--color-rule)',
+                          color: 'var(--color-muted-foreground)',
                         }}
                       >
                         {h}
@@ -267,8 +274,8 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                 {/* Stack */}
                 <div>
                   <h3
-                    className="text-sm font-semibold mb-3 uppercase tracking-wider"
-                    style={{ fontFamily: 'var(--font-jetbrains)', color: 'rgba(255,255,255,0.35)' }}
+                    className="text-sm font-semibold mb-3"
+                    style={{ fontFamily: 'var(--font-jetbrains)', color: 'var(--color-muted-foreground)' }}
                   >
                     {lang === 'en' ? 'Tech Stack' : 'Стек'}
                   </h3>
@@ -284,8 +291,8 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
               <div
                 className="sticky bottom-0 p-4"
                 style={{
-                  background: 'rgba(10,10,10,0.97)',
-                  borderTop: '1px solid rgba(255,255,255,0.06)',
+                  background: 'var(--color-paper-2)',
+                  borderTop: '1px solid var(--color-rule)',
                 }}
               >
                 <a
@@ -295,11 +302,11 @@ export function CaseModal({ item, onClose }: CaseModalProps) {
                   className="w-full flex items-center justify-center py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-90"
                   style={{
                     fontFamily: 'var(--font-dm-sans)',
-                    background: 'linear-gradient(135deg, #06b6d4, #f97316)',
-                    color: '#fff',
+                    background: 'var(--color-accent)',
+                    color: 'var(--color-accent-ink)',
                   }}
                 >
-                  {lang === 'en' ? 'Discuss a similar project →' : 'Обсудить похожий проект →'}
+                  {lang === 'en' ? 'Discuss a similar project' : 'Обсудить похожий проект'}
                 </a>
               </div>
             </div>

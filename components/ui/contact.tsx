@@ -8,7 +8,7 @@ export function Contact() {
   const { lang } = useLang()
 
   return (
-    <section id="contact" className="relative py-24 px-6 overflow-hidden" style={{ background: 'rgba(5,5,6,0.12)' }}>
+    <section id="contact" className="relative py-24 px-6 overflow-hidden bg-background">
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
@@ -19,53 +19,25 @@ export function Contact() {
           {/* Availability badge */}
           <div className="inline-flex mb-8">
             <span
-              className="px-4 py-2 rounded-full text-sm"
+              className="px-4 py-2 rounded-full text-sm font-mono"
               style={{
                 fontFamily: 'var(--font-jetbrains)',
-                background: 'rgba(0,255,136,0.08)',
-                border: '1px solid rgba(0,255,136,0.25)',
-                color: '#00ff88',
+                background: 'color-mix(in oklab, var(--color-signal) 12%, transparent)',
+                border: '1px solid color-mix(in oklab, var(--color-signal) 30%, transparent)',
+                color: 'var(--color-signal)',
                 fontSize: '0.8rem',
               }}
             >
-              ✦ {lang === 'en' ? 'Available · Response within 24h' : 'Доступен · Отвечу в течение 24ч'}
+              ✦ {lang === 'en' ? 'Available: Response within 24h' : 'Доступен: Отвечу в течение 24ч'}
             </span>
           </div>
 
           {/* Headline */}
           <h2
             className="text-4xl md:text-6xl font-black mb-6"
-            style={{ fontFamily: 'var(--font-syne)' }}
+            style={{ fontFamily: 'var(--font-syne)', color: 'var(--color-ink)' }}
           >
-            {lang === 'en' ? (
-              <>
-                Ready to build{' '}
-                <span
-                  style={{
-                    background: 'linear-gradient(135deg, #00ff88 0%, #06b6d4 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  something?
-                </span>
-              </>
-            ) : (
-              <>
-                Готовы что-то{' '}
-                <span
-                  style={{
-                    background: 'linear-gradient(135deg, #00ff88 0%, #06b6d4 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  построить?
-                </span>
-              </>
-            )}
+            {lang === 'en' ? 'Ready to build something?' : 'Готовы что-то построить?'}
           </h2>
 
           {/* Subtext */}
@@ -74,7 +46,7 @@ export function Contact() {
             style={{
               fontFamily: 'var(--font-dm-sans)',
               fontWeight: 300,
-              color: 'rgba(255,255,255,0.75)',
+              color: 'var(--color-muted-foreground)',
               lineHeight: 1.7,
             }}
           >
@@ -89,23 +61,16 @@ export function Contact() {
               href="https://t.me/AIbert_Einsteln"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative px-10 py-4 rounded-full text-base font-bold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,136,0.35)] overflow-hidden"
+              className="group relative px-10 py-4 rounded-full text-base font-bold transition-colors duration-200 overflow-hidden"
               style={{
                 fontFamily: 'var(--font-dm-sans)',
-                background: 'linear-gradient(135deg, #00ff88 0%, #06b6d4 100%)',
-                color: '#050506', // dark text for high contrast on neon bright gradient button
+                background: 'var(--color-signal)',
+                color: 'var(--color-signal-ink)',
               }}
             >
               <span className="relative z-10 inline-flex items-center gap-2">
                 {lang === 'en' ? 'Write on Telegram' : 'Написать в Telegram'}
-                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
               </span>
-              <span
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 50%, rgba(255,255,255,0.15) 100%)',
-                }}
-              />
             </a>
           </div>
 
@@ -114,13 +79,10 @@ export function Contact() {
             href="https://github.com/Sebatron777"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm transition-colors duration-200 hover:text-white block mb-16"
-            style={{
-              fontFamily: 'var(--font-jetbrains)',
-              color: 'rgba(255,255,255,0.35)',
-            }}
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+            style={{ fontFamily: 'var(--font-jetbrains)' }}
           >
-            github.com/Sebatron777
+            <span>github.com/Sebatron777</span>
           </a>
         </motion.div>
       </div>

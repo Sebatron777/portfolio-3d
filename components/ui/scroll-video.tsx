@@ -158,11 +158,12 @@ export function ScrollVideo({
         muted
         playsInline
         preload="auto"
+        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
         className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 ${className}`}
         style={{
           opacity,
           willChange: 'transform',
-          background: '#050506',
+          background: 'var(--color-paper)',
           filter: `brightness(${brightness})`,
           ...style,
         }}
@@ -172,7 +173,7 @@ export function ScrollVideo({
         className="absolute top-0 left-0 right-0 pointer-events-none z-[1]"
         style={{
           height: '180px',
-          background: 'linear-gradient(to bottom, #050506 0%, rgba(5,5,6,0) 100%)',
+          background: 'linear-gradient(to bottom, var(--color-paper) 0%, transparent 100%)',
         }}
       />
       {/* Bottom fade: transparent → dark */}
@@ -180,7 +181,7 @@ export function ScrollVideo({
         className="absolute bottom-0 left-0 right-0 pointer-events-none z-[1]"
         style={{
           height: '180px',
-          background: 'linear-gradient(to top, #050506 0%, rgba(5,5,6,0) 100%)',
+          background: 'linear-gradient(to top, var(--color-paper) 0%, transparent 100%)',
         }}
       />
     </>

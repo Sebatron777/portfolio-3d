@@ -11,11 +11,11 @@ const CAMERA_Z_START = 14
 const CAMERA_Z_END   = 5
 const ROTATION_SPEED = 0.0003
 const MOUSE_INFLUENCE = 0.4
-const COLOR_CYAN     = new THREE.Color('#06b6d4')
-const COLOR_ORANGE   = new THREE.Color('#f97316')
-const COLOR_GREEN    = new THREE.Color('#00ff88')
-const COLOR_WHITE    = new THREE.Color('#ffffff')
-const BG_COLOR       = new THREE.Color('#050506')
+const COLOR_CYAN     = new THREE.Color(0x38bdf8)
+const COLOR_ORANGE   = new THREE.Color(0xfb923c)
+const COLOR_GREEN    = new THREE.Color(0x4ade80)
+const COLOR_WHITE    = new THREE.Color(0xf1f5f9)
+const BG_COLOR       = new THREE.Color(0x0f172a)
 
 // ─── helpers ──────────────────────────────────────────────
 function randomSpherePoint(radius: number): THREE.Vector3 {

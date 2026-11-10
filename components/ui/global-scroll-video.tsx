@@ -213,10 +213,11 @@ export function GlobalScrollVideo({
           ref={canvasRef}
           width={1920}
           height={1080}
+          aria-hidden="true"
           className="w-full h-full object-fill pointer-events-none"
           style={{
             willChange: 'transform',
-            background: '#050506',
+            background: 'var(--color-paper)',
             filter: `brightness(0.65) blur(0px)`, // starting values
           }}
         />
@@ -226,6 +227,7 @@ export function GlobalScrollVideo({
           href="https://t.me/AIbert_Einsteln"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Telegram: Serhii Lysak"
           className="absolute flex items-center justify-center pointer-events-auto"
           style={{
             right: '0.8%',
@@ -242,22 +244,19 @@ export function GlobalScrollVideo({
           onMouseLeave={() => setIsHovered(false)}
         >
           <motion.div
-            className="w-full h-full rounded-full flex items-center justify-center relative transition-all duration-300"
+            className="w-full h-full rounded-full flex items-center justify-center relative transition-colors duration-300"
             style={{
-              background: 'rgba(5, 5, 6, 0.65)',
+              background: 'var(--color-paper-2)',
               backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(6, 182, 212, 0.25)',
-              boxShadow: isHovered 
-                ? '0 0 25px rgba(6, 182, 212, 0.45), inset 0 0 15px rgba(6, 182, 212, 0.2)'
-                : '0 0 15px rgba(6, 182, 212, 0.15), inset 0 0 10px rgba(6, 182, 212, 0.1)',
+              border: '1px solid var(--color-rule)',
             }}
             animate={{
-              scale: isHovered ? 1.12 : 1,
+              scale: isHovered ? 1.08 : 1,
             }}
           >
             {/* Spinning tech border */}
             <div
-              className="absolute inset-0 rounded-full border border-dashed border-cyan-500/30 animate-spin"
+              className="absolute inset-0 rounded-full border border-dashed border-accent/30 animate-spin"
               style={{
                 animationDuration: '12s',
               }}
@@ -265,7 +264,7 @@ export function GlobalScrollVideo({
 
             {/* Glowing inner border */}
             <div
-              className="absolute inset-[3px] rounded-full border border-t-orange-500/40 border-r-green-500/20 border-b-cyan-500/40 border-l-transparent animate-spin"
+              className="absolute inset-[3px] rounded-full border border-t-accent/40 border-r-signal/20 border-b-accent/40 border-l-transparent animate-spin"
               style={{
                 animationDuration: '6s',
                 animationDirection: 'reverse',
@@ -273,7 +272,7 @@ export function GlobalScrollVideo({
             />
 
             {/* Animated Icon Container */}
-            <div className="relative z-10 flex items-center justify-center text-cyan-400">
+            <div className="relative z-10 flex items-center justify-center text-accent">
               <AnimatePresence mode="wait">
                 {!isHovered ? (
                   <motion.div
@@ -283,7 +282,7 @@ export function GlobalScrollVideo({
                     exit={{ opacity: 0, rotate: 45, scale: 0.8 }}
                     transition={{ duration: 0.25 }}
                   >
-                    <FaPython className="w-[50%] h-[50%] min-w-[20px] min-h-[20px] max-w-[44px] max-h-[44px] text-cyan-400" />
+                    <FaPython className="w-[50%] h-[50%] min-w-[20px] min-h-[20px] max-w-[44px] max-h-[44px] text-accent" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -293,7 +292,7 @@ export function GlobalScrollVideo({
                     exit={{ opacity: 0, rotate: 45, scale: 0.8 }}
                     transition={{ duration: 0.25 }}
                   >
-                    <FaTelegramPlane className="w-[50%] h-[50%] min-w-[20px] min-h-[20px] max-w-[44px] max-h-[44px] text-orange-400" />
+                    <FaTelegramPlane className="w-[50%] h-[50%] min-w-[20px] min-h-[20px] max-w-[44px] max-h-[44px] text-signal" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -309,15 +308,15 @@ export function GlobalScrollVideo({
                   transition={{ duration: 0.2 }}
                   className="absolute right-[120%] top-1/2 -translate-y-1/2 py-2 px-3.5 rounded-lg whitespace-nowrap text-xs font-mono border"
                   style={{
-                    background: 'rgba(5, 5, 6, 0.85)',
+                    background: 'var(--color-paper-2)',
                     backdropFilter: 'blur(12px)',
-                    borderColor: 'rgba(6, 182, 212, 0.3)',
-                    color: '#ffffff',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+                    borderColor: 'var(--color-rule)',
+                    color: 'var(--color-ink)',
+                    boxShadow: '0 4px 20px color-mix(in oklab, var(--color-paper) 60%, black)',
                   }}
                 >
                   <span className="flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
                     {lang === 'en' ? 'Telegram Dev' : 'Написать разработчику'}
                   </span>
                 </motion.div>
@@ -332,7 +331,7 @@ export function GlobalScrollVideo({
         ref={overlayRef}
         className="fixed inset-0 pointer-events-none z-[1]"
         style={{
-          background: 'radial-gradient(ellipse at center, transparent 40%, rgba(5,5,6,0.15) 100%)',
+          background: 'radial-gradient(ellipse at center, transparent 40%, color-mix(in oklab, var(--color-paper) 15%, transparent) 100%)',
           transition: 'backdrop-filter 0.1s, background 0.1s',
         }}
       />

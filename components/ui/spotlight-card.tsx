@@ -27,14 +27,12 @@ const borderGlowStyle = `
   .glow-border {
     --x: -9999;
     --y: -9999;
-    --hue: 188; /* Unified Neon Cyan matching background telegram plane / servers */
     background-image: radial-gradient(
       450px 450px at calc(var(--x) * 1px) calc(var(--y) * 1px),
-      hsl(var(--hue) 100% 70% / 0.22) 0%,
-      hsl(var(--hue) 100% 60% / 0.11) 15%,
-      hsl(var(--hue) 80% 45% / 0.03) 35%,
-      rgba(255,255,255,0.02) 55%,
-      rgba(255,255,255,0.01)
+      color-mix(in oklab, var(--color-accent) 24%, transparent) 0%,
+      color-mix(in oklab, var(--color-accent) 12%, transparent) 18%,
+      color-mix(in oklab, var(--color-rule) 50%, transparent) 40%,
+      transparent 70%
     );
     background-attachment: fixed;
     padding: 1px;
@@ -42,6 +40,7 @@ const borderGlowStyle = `
 
   .glow-inner {
     position: relative;
+    background: var(--color-paper-2);
   }
 
   .glow-inner::before {
@@ -51,9 +50,9 @@ const borderGlowStyle = `
     border-radius: inherit;
     background: radial-gradient(
       500px 500px at calc(var(--x) * 1px) calc(var(--y) * 1px),
-      hsl(var(--hue) 100% 65% / 0.04) 0%,
-      hsl(var(--hue) 90% 55% / 0.015) 20%,
-      transparent 40%
+      color-mix(in oklab, var(--color-accent) 5%, transparent) 0%,
+      color-mix(in oklab, var(--color-accent) 2%, transparent) 25%,
+      transparent 50%
     );
     background-attachment: fixed;
     pointer-events: none;
@@ -110,7 +109,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
       <div
         className={`glow-inner rounded-[15px] h-full overflow-hidden ${innerCls}`}
         style={{
-          background: 'rgba(15, 15, 22, 0.45)',
+          background: 'var(--color-paper-2)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
         }}

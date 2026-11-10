@@ -18,9 +18,9 @@ interface CaseCardProps {
 }
 
 const categoryColors: Record<string, string> = {
-  'telegram-bot': '#06b6d4',
-  'automation':   '#f97316',
-  'ai-tool':      '#7c3aed',
+  'telegram-bot': 'var(--color-accent)',
+  'automation':   'var(--color-tag-automation)',
+  'ai-tool':      'var(--color-tag-ai)',
 }
 
 const categoryGlow: Record<string, 'cyan' | 'orange' | 'purple'> = {
@@ -55,16 +55,16 @@ export function CaseCard({ title, category, stack, descriptionEN, descriptionRU,
       >
         {/* Compact Visual Header Area */}
         <div
-          className="w-full h-16 relative flex-shrink-0 flex items-center justify-between px-4 border-b border-white/5"
-          style={{ background: 'rgba(255,255,255,0.015)' }}
+          className="w-full h-16 relative flex-shrink-0 flex items-center justify-between px-4 border-b border-[var(--color-rule)]"
+          style={{ background: 'var(--color-paper-3)' }}
         >
           {/* Category badge */}
           <span
             className="text-[0.7rem] px-2.5 py-1 rounded-full font-medium"
             style={{
               fontFamily: 'var(--font-jetbrains)',
-              background: `${color}18`,
-              border: `1px solid ${color}45`,
+              background: `color-mix(in oklab, ${color} 15%, transparent)`,
+              border: `1px solid color-mix(in oklab, ${color} 35%, transparent)`,
               color,
             }}
           >
@@ -73,10 +73,10 @@ export function CaseCard({ title, category, stack, descriptionEN, descriptionRU,
 
           {/* Compact Corner Icon Box */}
           <div
-            className="w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
+            className="w-9 h-9 rounded-xl flex items-center justify-center transition-colors duration-200"
             style={{
-              background: `${color}15`,
-              border: `1px solid ${color}35`,
+              background: `color-mix(in oklab, ${color} 15%, transparent)`,
+              border: `1px solid color-mix(in oklab, ${color} 35%, transparent)`,
               color,
             }}
           >
@@ -88,7 +88,7 @@ export function CaseCard({ title, category, stack, descriptionEN, descriptionRU,
 
         {/* Content */}
         <div className="p-6 flex flex-col flex-1">
-          {/* Title row with hover arrow button on the right */}
+          {/* Title row */}
           <div className="flex items-start justify-between gap-3 mb-4">
             <h3
               className="text-lg font-bold leading-snug"
@@ -96,21 +96,11 @@ export function CaseCard({ title, category, stack, descriptionEN, descriptionRU,
             >
               {title}
             </h3>
-            <span
-              className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-1 group-hover:translate-x-0"
-              style={{
-                background: `${color}18`,
-                border: `1px solid ${color}45`,
-                color,
-              }}
-            >
-              →
-            </span>
           </div>
 
           <p
             className="text-sm leading-relaxed mb-6 flex-1"
-            style={{ color: 'rgba(255,255,255,0.75)', fontFamily: 'var(--font-dm-sans)' }}
+            style={{ color: 'var(--color-ink-2)', fontFamily: 'var(--font-dm-sans)' }}
           >
             {lang === 'en' ? descriptionEN : descriptionRU}
           </p>
@@ -123,9 +113,9 @@ export function CaseCard({ title, category, stack, descriptionEN, descriptionRU,
                 className="text-[0.7rem] px-2 py-0.5 rounded"
                 style={{
                   fontFamily: 'var(--font-jetbrains)',
-                  background: 'rgba(255,255,255,0.04)',
-                  color: 'rgba(255,255,255,0.5)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  background: 'var(--color-paper-2)',
+                  color: 'var(--color-muted-foreground)',
+                  border: '1px solid var(--color-rule)',
                 }}
               >
                 {h}
@@ -134,12 +124,9 @@ export function CaseCard({ title, category, stack, descriptionEN, descriptionRU,
           </div>
 
           {/* Stack */}
-          <div className="flex flex-wrap gap-2 mt-auto pt-2 border-t border-white/5">
+          <div className="flex flex-wrap gap-2 mt-auto pt-2 border-t border-[var(--color-rule)]">
             {stack.map(s => (
-              <StackBadge 
-                key={s}
-                className="bg-white/3 border border-white/8 text-white/40 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/30 group-hover:text-cyan-400"
-              >
+              <StackBadge key={s}>
                 {s}
               </StackBadge>
             ))}

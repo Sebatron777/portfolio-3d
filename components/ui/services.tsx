@@ -12,8 +12,8 @@ const services: { titleEN: string; titleRU: string; descEN: string; descRU: stri
   {
     titleEN: 'Telegram Bots',
     titleRU: 'Telegram-боты',
-    descEN: 'Custom bots on aiogram 3.x — from simple auto-replies to complex multi-account systems with Supabase backend and admin panels.',
-    descRU: 'Боты на aiogram 3.x — от авто-ответов до мультиаккаунт-систем с Supabase и admin-панелями.',
+    descEN: 'Custom bots on aiogram 3.x: from simple auto-replies to complex multi-account systems with Supabase backend and admin panels.',
+    descRU: 'Боты на aiogram 3.x: от авто-ответов до мультиаккаунт-систем с Supabase и admin-панелями.',
     tags: ['aiogram', 'Supabase', 'Python'],
     icon: <Bot size={28} />,
     glow: 'cyan',
@@ -21,8 +21,8 @@ const services: { titleEN: string; titleRU: string; descEN: string; descRU: stri
   {
     titleEN: 'Automation Systems',
     titleRU: 'Системы автоматизации',
-    descEN: 'Multi-account Pyrogram automation for Telegram growth, content distribution and engagement — anti-ban protection built in.',
-    descRU: 'Мультиаккаунт-автоматизация на Pyrogram для роста, рассылок и вовлечённости — со встроенной антибан-защитой.',
+    descEN: 'Multi-account Pyrogram automation for Telegram growth, content distribution and engagement, with anti-ban protection built in.',
+    descRU: 'Мультиаккаунт-автоматизация на Pyrogram для роста, рассылок и вовлечённости, со встроенной антибан-защитой.',
     tags: ['Pyrogram', 'MTProto', 'Anti-ban'],
     icon: <Cog size={28} />,
     glow: 'orange',
@@ -30,8 +30,8 @@ const services: { titleEN: string; titleRU: string; descEN: string; descRU: stri
   {
     titleEN: 'AI Integrations',
     titleRU: 'AI интеграции',
-    descEN: 'OpenAI GPT-4o, Claude API, fal.ai — real intelligence inside your automation. Comment generation, content creation, AI avatars.',
-    descRU: 'OpenAI GPT-4o, Claude API, fal.ai — реальный интеллект в автоматизацию. Генерация контента, AI-аватары.',
+    descEN: 'OpenAI GPT-4o, Claude API, fal.ai: real intelligence inside your automation. Comment generation, content creation, AI avatars.',
+    descRU: 'OpenAI GPT-4o, Claude API, fal.ai: реальный интеллект в автоматизацию. Генерация контента, AI-аватары.',
     tags: ['OpenAI', 'Claude', 'fal.ai'],
     icon: <Brain size={28} />,
     glow: 'purple',
@@ -39,8 +39,8 @@ const services: { titleEN: string; titleRU: string; descEN: string; descRU: stri
   {
     titleEN: 'Telegram Mini Apps',
     titleRU: 'Telegram Mini Apps',
-    descEN: 'Full-stack products: TMA frontend (Vanilla JS / React) + FastAPI backend. Not just scripts — real applications.',
-    descRU: 'Полноценные продукты: TMA + FastAPI бэкенд. Не просто скрипты — приложения с красивым UI.',
+    descEN: 'Full-stack products: TMA frontend (Vanilla JS / React) + FastAPI backend. Not just scripts, real applications.',
+    descRU: 'Полноценные продукты: TMA + FastAPI бэкенд. Не просто скрипты, приложения с продуманным UI.',
     tags: ['FastAPI', 'TMA', 'Full-stack'],
     icon: <Smartphone size={28} />,
     glow: 'green',
@@ -48,8 +48,8 @@ const services: { titleEN: string; titleRU: string; descEN: string; descRU: stri
   {
     titleEN: 'Websites & Landing Pages',
     titleRU: 'Сайты и лендинги',
-    descEN: 'Landing pages, portfolio sites and informational websites. Modern stack — Next.js, TypeScript, Tailwind CSS, Framer Motion. SEO-optimized, responsive, fast.',
-    descRU: 'Лендинги, портфолио и информационные сайты. Современный стек — Next.js, TypeScript, Tailwind CSS, Framer Motion. SEO, адаптивность, скорость.',
+    descEN: 'Landing pages, portfolio sites and informational websites. Modern stack: Next.js, TypeScript, Tailwind CSS, Framer Motion. SEO-optimized, responsive, fast.',
+    descRU: 'Лендинги, портфолио и информационные сайты. Современный стек: Next.js, TypeScript, Tailwind CSS, Framer Motion. SEO, адаптивность, скорость.',
     tags: ['Next.js', 'Tailwind', 'Framer Motion'],
     icon: <Globe size={28} />,
     glow: 'blue',
@@ -57,18 +57,18 @@ const services: { titleEN: string; titleRU: string; descEN: string; descRU: stri
 ]
 
 const glowColors: Record<string, string> = {
-  cyan: '#06b6d4',
-  orange: '#f97316',
-  purple: '#7c3aed',
-  green: '#00ff88',
-  blue: '#3b82f6',
+  cyan: 'var(--color-accent)',
+  orange: 'var(--color-tag-automation)',
+  purple: 'var(--color-tag-ai)',
+  green: 'var(--color-signal)',
+  blue: 'var(--color-tag-infra)',
 }
 
 export function Services() {
   const { lang } = useLang()
 
   return (
-    <section id="services" className="relative py-24 px-6 overflow-hidden" style={{ background: 'rgba(5,5,6,0.12)' }}>
+    <section id="services" className="relative py-24 px-6 overflow-hidden" style={{ background: 'color-mix(in oklab, var(--color-paper) 80%, transparent)' }}>
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
@@ -83,8 +83,8 @@ export function Services() {
           >
             {lang === 'en' ? 'What I Build' : 'Что я делаю'}
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.75)', fontFamily: 'var(--font-dm-sans)' }}>
-            {lang === 'en' ? 'End-to-end Telegram automation & AI systems' : 'Полный цикл — от идеи до деплоя'}
+          <p style={{ color: 'var(--color-ink-2)', fontFamily: 'var(--font-dm-sans)' }}>
+            {lang === 'en' ? 'End-to-end Telegram automation & AI systems' : 'Полный цикл: от идеи до деплоя'}
           </p>
         </motion.div>
  
@@ -101,7 +101,11 @@ export function Services() {
               <GlowCard customSize glowColor={service.glow} className="w-full h-full p-8 flex flex-col">
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                  style={{ background: `${glowColors[service.glow]}15`, border: `1px solid ${glowColors[service.glow]}30`, color: glowColors[service.glow] }}
+                  style={{
+                    background: `color-mix(in oklab, ${glowColors[service.glow]} 14%, transparent)`,
+                    border: `1px solid color-mix(in oklab, ${glowColors[service.glow]} 35%, transparent)`,
+                    color: glowColors[service.glow],
+                  }}
                 >
                   {service.icon}
                 </div>
@@ -113,16 +117,13 @@ export function Services() {
                 </h3>
                 <p
                   className="text-sm leading-relaxed mb-5 flex-1"
-                  style={{ color: 'rgba(255,255,255,0.75)', fontFamily: 'var(--font-dm-sans)' }}
+                  style={{ color: 'var(--color-ink-2)', fontFamily: 'var(--font-dm-sans)' }}
                 >
                   {lang === 'en' ? service.descEN : service.descRU}
                 </p>
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {service.tags.map(tag => (
-                    <StackBadge 
-                      key={tag}
-                      className="bg-white/3 border border-white/8 text-white/40 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/30 group-hover:text-cyan-400"
-                    >
+                    <StackBadge key={tag}>
                       {tag}
                     </StackBadge>
                   ))}

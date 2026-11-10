@@ -8,28 +8,28 @@ import { MapPin, Rocket, Shield, Terminal } from 'lucide-react'
 
 const timeline = [
   {
-    year: '2021–2023',
+    year: '2021-2023',
     en: 'Web3 Community Management',
     ru: 'Web3 Community Management',
-    color: '#0e7490',
+    color: 'var(--color-muted)',
   },
   {
-    year: '2023–2024',
+    year: '2023-2024',
     en: 'First Telegram bots & automation',
     ru: 'Первые боты и автоматизация',
-    color: '#06b6d4',
+    color: 'var(--color-accent)',
   },
   {
-    year: '2024–2025',
+    year: '2024-2025',
     en: 'Multi-account systems & AI tools',
     ru: 'Мультиаккаунт-системы и AI',
-    color: '#22d3ee',
+    color: 'var(--color-tag-ai)',
   },
   {
     year: '2025+',
     en: 'Full-stack products & Mini Apps',
     ru: 'Продукты и Mini Apps',
-    color: '#00ff88',
+    color: 'var(--color-signal)',
   },
 ]
 
@@ -39,24 +39,24 @@ const principles = [
     en: 'Systems, not scripts',
     ru: 'Системы, не скрипты',
     descEn: 'Every project has admin panel, monitoring, and proper architecture.',
-    descRu: 'Каждый проект — с admin-панелью, мониторингом и архитектурой.',
-    color: '#06b6d4',
+    descRu: 'Каждый проект: с admin-панелью, мониторингом и архитектурой.',
+    color: 'var(--color-accent)',
   },
   {
     icon: <Shield size={20} />,
     en: '24/7 uptime',
     ru: '24/7 аптайм',
-    descEn: 'Systemd, auto-recovery, anti-flood — built to run without babysitting.',
-    descRu: 'Systemd, авто-восстановление, антифлуд — работает без присмотра.',
-    color: '#00ff88',
+    descEn: 'Systemd, auto-recovery, anti-flood: built to run without babysitting.',
+    descRu: 'Systemd, авто-восстановление, антифлуд: работает без присмотра.',
+    color: 'var(--color-signal)',
   },
   {
     icon: <Rocket size={20} />,
     en: 'Fast turnaround',
     ru: 'Быстрый запуск',
     descEn: 'From idea to working MVP in days. Then polish based on real usage.',
-    descRu: 'От идеи до рабочего MVP за дни. Потом доработка на реальных данных.',
-    color: '#f97316',
+    descRu: 'От идеи до рабочего MVP за дни. Затем доработка на реальных данных.',
+    color: 'var(--color-tag-automation)',
   },
 ]
 
@@ -83,7 +83,7 @@ export function About() {
           </h2>
           <p
             className="text-lg max-w-2xl"
-            style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 300, color: 'rgba(255,255,255,0.75)' }}
+            style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 300, color: 'var(--color-ink-2)' }}
           >
             {lang === 'en'
               ? 'Self-taught developer who turned community management into building real automation products.'
@@ -103,10 +103,10 @@ export function About() {
           >
             <GlowCard className="p-8 flex flex-col h-full w-full" glowColor="cyan">
               <div className="flex items-center gap-2 mb-5">
-                <MapPin size={16} style={{ color: '#06b6d4' }} />
+                <MapPin size={16} style={{ color: 'var(--color-accent)' }} aria-hidden="true" />
                 <span
                   className="text-sm"
-                  style={{ fontFamily: 'var(--font-jetbrains)', color: 'rgba(255,255,255,0.5)' }}
+                  style={{ fontFamily: 'var(--font-jetbrains)', color: 'var(--color-muted-foreground)' }}
                 >
                   Da Nang, Vietnam
                 </span>
@@ -115,16 +115,16 @@ export function About() {
                 className="space-y-4 flex-1"
                 style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 300, lineHeight: 1.8, fontSize: '0.95rem' }}
               >
-                <p style={{ color: 'rgba(255,255,255,0.7)' }}>
+                <p style={{ color: 'var(--color-ink-2)' }}>
                   {lang === 'en'
-                    ? 'Started in Web3 community management — coordinating teams, growing audiences, running campaigns across Telegram and Discord.'
-                    : 'Начинал в Web3 community management — координация команд, рост аудитории, кампании в Telegram и Discord.'}
+                    ? 'Started in Web3 community management: coordinating teams, growing audiences, running campaigns across Telegram and Discord.'
+                    : 'Начинал в Web3 community management: координация команд, рост аудитории, кампании в Telegram и Discord.'}
                 </p>
-                <p style={{ color: 'rgba(255,255,255,0.7)' }}>
+                <p style={{ color: 'var(--color-ink-2)' }}>
                   {lang === 'en' ? (
-                    <>Then I realized: <span className="text-white font-medium">the best way to scale is to automate.</span> So I started building the tools myself — bots, multi-account systems, AI integrations.</>
+                    <>Then I realized: <span className="font-medium" style={{ color: 'var(--color-ink)' }}>the best way to scale is to automate.</span> So I started building the tools myself: bots, multi-account systems, AI integrations.</>
                   ) : (
-                    <>Потом понял: <span className="text-white font-medium">лучший способ масштабироваться — автоматизировать.</span> Начал строить инструменты сам — боты, мультиаккаунт-системы, AI-интеграции.</>
+                    <>Потом понял: <span className="font-medium" style={{ color: 'var(--color-ink)' }}>лучший способ масштабироваться, автоматизировать.</span> Начал строить инструменты сам: боты, мультиаккаунт-системы, AI-интеграции.</>
                   )}
                 </p>
               </div>
@@ -141,8 +141,8 @@ export function About() {
           >
             <GlowCard className="p-8 flex flex-col h-full w-full" glowColor="cyan">
               <h3
-                className="text-sm font-medium mb-6 uppercase tracking-wider"
-                style={{ fontFamily: 'var(--font-jetbrains-mono)', color: 'rgba(255,255,255,0.4)' }}
+                className="text-sm font-medium mb-6"
+                style={{ fontFamily: 'var(--font-jetbrains)', color: 'var(--color-muted-foreground)' }}
               >
                 {lang === 'en' ? 'Journey' : 'Путь'}
               </h3>
@@ -153,23 +153,23 @@ export function About() {
                     <div className="flex flex-col items-center pt-1.5">
                       <div
                         className="w-2.5 h-2.5 rounded-full shrink-0"
-                        style={{ background: item.color, boxShadow: `0 0 8px ${item.color}60` }}
+                        style={{ background: item.color }}
                       />
                       {i < timeline.length - 1 && (
-                        <div className="w-px h-6 mt-1" style={{ background: 'rgba(255,255,255,0.08)' }} />
+                        <div className="w-px h-6 mt-1" style={{ background: 'var(--color-rule)' }} />
                       )}
                     </div>
                     {/* Text */}
                     <div>
                       <span
                         className="text-xs font-medium"
-                        style={{ fontFamily: 'var(--font-jetbrains-mono)', color: item.color }}
+                        style={{ fontFamily: 'var(--font-jetbrains)', color: item.color }}
                       >
                         {item.year}
                       </span>
                       <p
                         className="text-sm mt-0.5"
-                        style={{ fontFamily: 'var(--font-dm-sans)', color: 'rgba(255,255,255,0.7)' }}
+                        style={{ fontFamily: 'var(--font-dm-sans)', color: 'var(--color-ink-2)' }}
                       >
                         {lang === 'en' ? item.en : item.ru}
                       </p>
@@ -181,7 +181,7 @@ export function About() {
           </motion.div>
         </div>
 
-        {/* Principles — 3 cards */}
+        {/* Principles: 3 cards */}
         <div className="grid md:grid-cols-3 gap-5">
           {principles.map((p, i) => (
             <motion.div
@@ -194,19 +194,23 @@ export function About() {
               <GlowCard className="p-6 flex flex-col" glowColor="cyan">
                 <div
                   className="w-9 h-9 rounded-lg flex items-center justify-center mb-3"
-                  style={{ background: `${p.color}15`, border: `1px solid ${p.color}30`, color: p.color }}
+                  style={{
+                    background: `color-mix(in oklab, ${p.color} 15%, transparent)`,
+                    border: `1px solid color-mix(in oklab, ${p.color} 30%, transparent)`,
+                    color: p.color,
+                  }}
                 >
                   {p.icon}
                 </div>
                 <h4
                   className="text-sm font-bold mb-1.5"
-                  style={{ fontFamily: 'var(--font-syne)', color: 'white' }}
+                  style={{ fontFamily: 'var(--font-syne)', color: 'var(--color-ink)' }}
                 >
                   {lang === 'en' ? p.en : p.ru}
                 </h4>
                 <p
                   className="text-xs leading-relaxed"
-                  style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 300, color: 'rgba(255,255,255,0.7)' }}
+                  style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 300, color: 'var(--color-ink-2)' }}
                 >
                   {lang === 'en' ? p.descEn : p.descRu}
                 </p>

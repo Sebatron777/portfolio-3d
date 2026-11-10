@@ -18,23 +18,23 @@ const cases: CaseDetailWithIcon[] = [
     category: 'automation',
     stack: ['Python', 'FastAPI', 'Pyrogram', 'SQLite', 'TMA', 'Systemd'],
     descriptionEN: 'High-performance Telegram growth system: multi-account management, 3-level username validation, 24/7 auto-recovery for flood-banned accounts. Interface built as Telegram Mini App.',
-    descriptionRU: 'Система роста Telegram: мультиаккаунты, 3-уровневая валидация юзернеймов, 24/7 авто-восстановление аккаунтов. Интерфейс — Telegram Mini App.',
+    descriptionRU: 'Система роста Telegram: мультиаккаунты, 3-уровневая валидация юзернеймов, 24/7 авто-восстановление аккаунтов. Интерфейс: Telegram Mini App.',
     highlights: ['TMA interface', 'Multi-proxy', 'Auto-recovery', 'Smart batching'],
     featuresEN: [
-      'Multi-account pool management — add, remove, monitor account health in real time',
+      'Multi-account pool management: add, remove, monitor account health in real time',
       '3-level username validation: format check → existence check → mutual contacts filter',
       'Smart batching with configurable delays to avoid flood bans',
       'Auto-recovery system: banned accounts enter cooldown and resume automatically',
-      'Multi-proxy support — unique IP per account',
+      'Multi-proxy support: unique IP per account',
       'Telegram Mini App frontend for campaign control without terminal access',
       'FastAPI backend with SQLite WAL for concurrent session handling',
     ],
     featuresRU: [
-      'Управление пулом аккаунтов — добавление, удаление, мониторинг состояния в реальном времени',
+      'Управление пулом аккаунтов: добавление, удаление, мониторинг состояния в реальном времени',
       '3-уровневая валидация юзернеймов: формат → существование → проверка взаимных контактов',
       'Умное батчинг-управление с настраиваемыми задержками для обхода флуд-банов',
       'Авто-восстановление: заблокированные аккаунты уходят на cooldown и возобновляют работу',
-      'Мультипрокси — уникальный IP на каждый аккаунт',
+      'Мультипрокси: уникальный IP на каждый аккаунт',
       'Telegram Mini App для управления кампаниями без доступа к терминалу',
       'FastAPI бэкенд с SQLite WAL для параллельных сессий',
     ],
@@ -52,8 +52,8 @@ const cases: CaseDetailWithIcon[] = [
     descriptionRU: 'Мультиаккаунт мониторинг каналов + AI-генерация комментариев через GPT-4o-mini. 4 режима персоны, задержки, симуляция печати, уникальные fingerprints.',
     highlights: ['GPT-4o-mini', '4 personas', 'Anti-detection', 'Channels + groups'],
     featuresEN: [
-      '4 AI persona modes: expert, casual user, skeptic, enthusiast — different tone per account',
-      'Context-aware comment generation — GPT reads the post before generating a reply',
+      '4 AI persona modes: expert, casual user, skeptic, enthusiast: different tone per account',
+      'Context-aware comment generation, GPT reads the post before generating a reply',
       'Typing simulation with realistic speed variation (chars/sec randomized)',
       'Randomized delays between reading a post and posting a comment',
       'Unique device fingerprint per userbot account (device model, app version, platform)',
@@ -61,8 +61,8 @@ const cases: CaseDetailWithIcon[] = [
       'SQLite database tracking comment history to avoid repetition',
     ],
     featuresRU: [
-      '4 режима AI-персоны: эксперт, обычный пользователь, скептик, энтузиаст — разный тон на каждый аккаунт',
-      'Генерация комментариев с контекстом — GPT читает пост перед ответом',
+      '4 режима AI-персоны: эксперт, обычный пользователь, скептик, энтузиаст: разный тон на каждый аккаунт',
+      'Генерация комментариев с контекстом, GPT читает пост перед ответом',
       'Симуляция печати с реалистичной скоростью (рандомизированные символы/сек)',
       'Рандомизированные задержки между прочтением поста и публикацией комментария',
       'Уникальный fingerprint устройства на каждый аккаунт (модель, версия приложения, платформа)',
@@ -75,7 +75,7 @@ const cases: CaseDetailWithIcon[] = [
     resultRU: 'Комментарии проходят ручную проверку администраторов каналов в 95%+ тестов. Консистентность персоны сохраняется на сотнях постов на аккаунт.',
   },
   {
-    title: 'EmojiBot — Reaction Manager',
+    title: 'EmojiBot: Reaction Manager',
     icon: <SmilePlus size={36} />,
     category: 'automation',
     stack: ['Python', 'Pyrogram', 'aiogram', 'SQLite', 'Systemd'],
@@ -85,7 +85,7 @@ const cases: CaseDetailWithIcon[] = [
     featuresEN: [
       'Account state machine: Active → Flood → Sleeping → Banned, with auto-transitions',
       'Configurable reaction engine: min/max delay, max bots per chat, max chats per bot',
-      'Reaction queue with priority management — newest posts get reactions first',
+      'Reaction queue with priority management, newest posts get reactions first',
       'Real-time stats dashboard via aiogram admin bot',
       'Systemd service for 24/7 uptime with auto-restart on crash',
       'Emoji randomization per account to avoid pattern detection',
@@ -93,7 +93,7 @@ const cases: CaseDetailWithIcon[] = [
     featuresRU: [
       'State machine для аккаунтов: Active → Flood → Sleeping → Banned с авто-переходами',
       'Настраиваемый движок реакций: мин/макс задержка, макс ботов на чат, лимит чатов',
-      'Очередь реакций с приоритизацией — свежие посты получают реакции первыми',
+      'Очередь реакций с приоритизацией, свежие посты получают реакции первыми',
       'Dashboard статистики в реальном времени через aiogram admin-бот',
       'Systemd-сервис с 24/7 аптаймом и авто-рестартом при краше',
       'Рандомизация эмодзи на каждый аккаунт для обхода паттерн-детекции',
@@ -113,7 +113,7 @@ const cases: CaseDetailWithIcon[] = [
     highlights: ['Multi-payment', 'Auto-delivery', 'RU/EN', 'Admin panel'],
     featuresEN: [
       'Multiple payment integrations: Telegram Stars (native), Tribute, with easy extensibility',
-      'Auto-delivery engine: links, files, closed group usernames — instant on payment confirmation',
+      'Auto-delivery engine: links, files, closed group usernames, instant on payment confirmation',
       'Fully bilingual interface RU/EN with per-user language preference stored in Supabase',
       'Broadcast system with audience segmentation (all users / paid / free)',
       'Admin panel with revenue stats, user count, conversion rates',
@@ -122,16 +122,16 @@ const cases: CaseDetailWithIcon[] = [
     ],
     featuresRU: [
       'Несколько платёжных систем: Telegram Stars (нативный), Tribute, с простой расширяемостью',
-      'Движок авто-выдачи: ссылки, файлы, юзернеймы закрытых групп — мгновенно после оплаты',
+      'Движок авто-выдачи: ссылки, файлы, юзернеймы закрытых групп, мгновенно после оплаты',
       'Полностью двуязычный интерфейс RU/EN с хранением предпочтений пользователя в Supabase',
       'Система рассылок с сегментацией аудитории (все / платные / бесплатные)',
       'Admin-панель со статистикой выручки, числом пользователей, конверсиями',
       'FSM-флоу покупки с напоминаниями о брошенной корзине',
       'Supabase бэкенд для профилей, истории платежей и каталога контента',
     ],
-    challengeEN: 'Content creators needed a turnkey monetization solution that works without any technical knowledge on their side — pure Telegram, no external websites.',
-    challengeRU: 'Авторам контента нужно было готовое решение монетизации без технических знаний — только Telegram, без внешних сайтов.',
-    resultEN: 'Deployed for multiple creators. First sales within hours of setup. Zero support requests from end users — the UX is self-explanatory.',
+    challengeEN: 'Content creators needed a turnkey monetization solution that works without any technical knowledge on their side, pure Telegram, no external websites.',
+    challengeRU: 'Авторам контента нужно было готовое решение монетизации без технических знаний, только Telegram, без внешних сайтов.',
+    resultEN: 'Deployed for multiple creators. First sales within hours of setup. Zero support requests from end users: the UX is self-explanatory.',
     resultRU: 'Задеплоено для нескольких авторов. Первые продажи в течение нескольких часов после настройки. Ноль обращений в поддержку от конечных пользователей.',
   },
   {
@@ -145,7 +145,7 @@ const cases: CaseDetailWithIcon[] = [
     featuresEN: [
       'Campaign lifecycle management: create → run → pause → resume → archive',
       'Message template engine with inline randomization syntax: {Hello|Hi|Hey}, {friend|mate}',
-      'Round-robin account rotation — distributes send load evenly across the account pool',
+      'Round-robin account rotation: distributes send load evenly across the account pool',
       'Anti-flood system with exponential backoff and automatic account recovery after cooldown',
       'Multi-level access control: admin approves each new operator before they can create campaigns',
       'Delivery reports per campaign: sent, failed, flood-blocked counts',
@@ -154,13 +154,13 @@ const cases: CaseDetailWithIcon[] = [
     featuresRU: [
       'Управление жизненным циклом кампаний: создание → запуск → пауза → возобновление → архив',
       'Движок шаблонов с инлайн-рандомизацией: {Привет|Здравствуй|Добрый день}, {друг|коллега}',
-      'Round-robin ротация аккаунтов — равномерное распределение нагрузки по пулу',
+      'Round-robin ротация аккаунтов: равномерное распределение нагрузки по пулу',
       'Антифлуд с экспоненциальной задержкой и авто-восстановлением аккаунтов после кулдауна',
       'Многоуровневый контроль доступа: администратор одобряет каждого нового оператора',
       'Отчёты о доставке по кампаниям: отправлено, ошибки, флуд-блоки',
       'Systemd-сервис для постоянной работы 24/7 на VPS',
     ],
-    challengeEN: 'Running bulk messaging across multiple accounts while avoiding permanent bans — and giving non-technical operators a usable interface without exposing server access.',
+    challengeEN: 'Running bulk messaging across multiple accounts while avoiding permanent bans, and giving non-technical operators a usable interface without exposing server access.',
     challengeRU: 'Массовые рассылки с нескольких аккаунтов без перманентных банов + удобный интерфейс для нетехнических операторов без доступа к серверу.',
     resultEN: 'Platform used for ongoing outreach campaigns. Round-robin + anti-flood combination reduced ban rate by ~80% compared to single-account approaches.',
     resultRU: 'Платформа используется для постоянных рассылок. Комбинация round-robin + антифлуд снизила процент банов на ~80% по сравнению с одноаккаунтным подходом.',
@@ -259,8 +259,8 @@ export function Cases() {
           >
             {lang === 'en' ? 'Cases' : 'Кейсы'}
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'var(--font-dm-sans)' }}>
-            {lang === 'en' ? 'Real projects, real results — click any card to explore' : 'Реальные проекты — нажмите на карточку для деталей'}
+          <p style={{ color: 'var(--color-muted-foreground)', fontFamily: 'var(--font-dm-sans)' }}>
+            {lang === 'en' ? 'Real projects, real results: click any card to explore' : 'Реальные проекты: нажмите на карточку для деталей'}
           </p>
         </motion.div>
 
@@ -270,13 +270,12 @@ export function Cases() {
             <button
               key={f.key}
               onClick={() => setActive(f.key)}
-              className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105"
+              className="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200"
               style={{
                 fontFamily: 'var(--font-dm-sans)',
-                background: active === f.key ? 'rgba(6,182,212,0.15)' : 'rgba(255,255,255,0.05)',
-                border: active === f.key ? '1px solid rgba(6,182,212,0.4)' : '1px solid rgba(255,255,255,0.1)',
-                color: active === f.key ? '#06b6d4' : 'rgba(255,255,255,0.6)',
-                boxShadow: active === f.key ? '0 0 16px rgba(6,182,212,0.2)' : 'none',
+                background: active === f.key ? 'color-mix(in oklab, var(--color-accent) 15%, transparent)' : 'var(--color-paper-2)',
+                border: active === f.key ? '1px solid var(--color-accent)' : '1px solid var(--color-rule)',
+                color: active === f.key ? 'var(--color-accent)' : 'var(--color-muted-foreground)',
               }}
             >
               {lang === 'en' ? f.labelEN : f.labelRU}

@@ -15,7 +15,7 @@ const categories: { titleEN: string; titleRU: string; icon: ReactNode; tags: str
     icon: <Server size={20} />,
     tags: ['Python 3.11+', 'FastAPI', 'aiogram 3.x', 'Pyrogram', 'Telethon'],
     glow: 'cyan',
-    color: '#06b6d4',
+    color: 'var(--color-accent)',
   },
   {
     titleEN: 'Database',
@@ -23,7 +23,7 @@ const categories: { titleEN: string; titleRU: string; icon: ReactNode; tags: str
     icon: <Database size={20} />,
     tags: ['Supabase', 'SQLite WAL', 'Redis'],
     glow: 'blue',
-    color: '#3b82f6',
+    color: 'var(--color-tag-infra)',
   },
   {
     titleEN: 'Infrastructure',
@@ -31,7 +31,7 @@ const categories: { titleEN: string; titleRU: string; icon: ReactNode; tags: str
     icon: <Cloud size={20} />,
     tags: ['Systemd', 'VPS', 'Vercel', 'Docker'],
     glow: 'orange',
-    color: '#f97316',
+    color: 'var(--color-tag-automation)',
   },
   {
     titleEN: 'AI',
@@ -39,7 +39,7 @@ const categories: { titleEN: string; titleRU: string; icon: ReactNode; tags: str
     icon: <Brain size={20} />,
     tags: ['OpenAI GPT-4o', 'Claude API', 'fal.ai', 'HeyGen'],
     glow: 'purple',
-    color: '#7c3aed',
+    color: 'var(--color-tag-ai)',
   },
   {
     titleEN: 'Frontend',
@@ -47,7 +47,7 @@ const categories: { titleEN: string; titleRU: string; icon: ReactNode; tags: str
     icon: <Monitor size={20} />,
     tags: ['React Native', 'Expo v52', 'TMA', 'Next.js', 'TypeScript'],
     glow: 'green',
-    color: '#00ff88',
+    color: 'var(--color-signal)',
   },
   {
     titleEN: 'Tools',
@@ -55,7 +55,7 @@ const categories: { titleEN: string; titleRU: string; icon: ReactNode; tags: str
     icon: <Wrench size={20} />,
     tags: ['Claude Code', 'Cursor', 'Git'],
     glow: 'red',
-    color: '#ef4444',
+    color: 'var(--color-error)',
   },
 ]
 
@@ -63,7 +63,7 @@ export function TechStack() {
   const { lang } = useLang()
 
   return (
-    <section id="stack" className="relative py-24 px-6 overflow-hidden" style={{ background: 'rgba(5,5,6,0.12)' }}>
+    <section id="stack" className="relative py-24 px-6 overflow-hidden" style={{ background: 'color-mix(in oklab, var(--color-paper) 80%, transparent)' }}>
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
@@ -78,7 +78,7 @@ export function TechStack() {
           >
             {lang === 'en' ? 'Tech Stack' : 'Технологии'}
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.75)', fontFamily: 'var(--font-dm-sans)' }}>
+          <p style={{ color: 'var(--color-ink-2)', fontFamily: 'var(--font-dm-sans)' }}>
             {lang === 'en' ? 'Tools I use to build production systems' : 'Инструменты для продакшен-систем'}
           </p>
         </motion.div>
@@ -97,7 +97,11 @@ export function TechStack() {
                 <div className="flex items-center gap-3 mb-4">
                   <div
                     className="w-8 h-8 rounded-lg flex items-center justify-center"
-                    style={{ background: `${cat.color}15`, border: `1px solid ${cat.color}30`, color: cat.color }}
+                    style={{
+                      background: `color-mix(in oklab, ${cat.color} 14%, transparent)`,
+                      border: `1px solid color-mix(in oklab, ${cat.color} 35%, transparent)`,
+                      color: cat.color,
+                    }}
                   >
                     {cat.icon}
                   </div>
@@ -110,10 +114,7 @@ export function TechStack() {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {cat.tags.map(tag => (
-                    <StackBadge 
-                      key={tag}
-                      className="bg-white/3 border border-white/8 text-white/40 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/30 group-hover:text-cyan-400"
-                    >
+                    <StackBadge key={tag}>
                       {tag}
                     </StackBadge>
                   ))}

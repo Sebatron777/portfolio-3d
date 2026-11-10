@@ -181,8 +181,8 @@ export function GlobalScrollVideo({
         overlay.style.backdropFilter = overlayBlur > 0 ? `blur(${overlayBlur}px)` : 'none'
 
         // Vignette edge opacity: 0.15 -> 0.45
-        const edgeOpacity = 0.15 + 0.30 * transitionProgress
-        overlay.style.background = `radial-gradient(ellipse at center, transparent 40%, rgba(5,5,6,${edgeOpacity}) 100%)`
+        const edgePct = Math.round((0.15 + 0.30 * transitionProgress) * 100)
+        overlay.style.background = `radial-gradient(ellipse at center, transparent 40%, color-mix(in oklab, var(--color-paper) ${edgePct}%, transparent) 100%)`
       }
     }
 
@@ -306,7 +306,7 @@ export function GlobalScrollVideo({
                   animate={{ opacity: 1, x: 0, scale: 1 }}
                   exit={{ opacity: 0, x: 10, scale: 0.9 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute right-[120%] top-1/2 -translate-y-1/2 py-2 px-3.5 rounded-lg whitespace-nowrap text-xs font-mono border"
+                  className="absolute right-[120%] top-1/2 -translate-y-1/2 py-2 px-3.5 rounded-lg whitespace-nowrap text-xs font-sans border"
                   style={{
                     background: 'var(--color-paper-2)',
                     backdropFilter: 'blur(12px)',

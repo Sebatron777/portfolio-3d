@@ -14,7 +14,7 @@ export function Hero() {
       <div 
         className="absolute inset-0 pointer-events-none z-0" 
         style={{ 
-          background: 'linear-gradient(to right, rgba(5, 5, 6, 0.90) 0%, rgba(5, 5, 6, 0.70) 45%, rgba(5, 5, 6, 0.10) 80%, transparent 100%)' 
+          background: 'linear-gradient(to right, color-mix(in oklab, var(--color-paper) 92%, transparent) 0%, color-mix(in oklab, var(--color-paper) 70%, transparent) 45%, color-mix(in oklab, var(--color-paper) 10%, transparent) 80%, transparent 100%)' 
         }} 
       />
 

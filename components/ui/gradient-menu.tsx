@@ -99,9 +99,8 @@ export function GradientMenu() {
         <div className="flex items-center gap-3">
           <button
             onClick={toggle}
-            className="text-xs font-mono px-3 py-1.5 rounded-full transition-colors duration-200 hover:border-accent hover:text-foreground"
+            className="text-xs font-medium px-3 py-1.5 rounded-full transition-colors duration-200 hover:border-accent hover:text-foreground"
             style={{
-              fontFamily: 'var(--font-jetbrains)',
               border: '1px solid var(--color-rule)',
               color: 'var(--color-muted-foreground)',
               background: 'var(--color-paper-2)',

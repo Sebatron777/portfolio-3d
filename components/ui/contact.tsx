@@ -19,13 +19,11 @@ export function Contact() {
           {/* Availability badge */}
           <div className="inline-flex mb-8">
             <span
-              className="px-4 py-2 rounded-full text-sm font-mono"
+              className="px-4 py-2 rounded-full text-xs font-medium"
               style={{
-                fontFamily: 'var(--font-jetbrains)',
                 background: 'color-mix(in oklab, var(--color-signal) 12%, transparent)',
                 border: '1px solid color-mix(in oklab, var(--color-signal) 30%, transparent)',
                 color: 'var(--color-signal)',
-                fontSize: '0.8rem',
               }}
             >
               ✦ {lang === 'en' ? 'Available: Response within 24h' : 'Доступен: Отвечу в течение 24ч'}
